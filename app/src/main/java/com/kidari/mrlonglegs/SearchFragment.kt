@@ -13,7 +13,11 @@ import kotlinx.android.synthetic.main.fragment_search.*
 
 class SearchFragment : Fragment() {
 
-
+    val searchTitleFragment = SearchTitleFragment()
+    val surroundingsFragment = SurroundingsFragment()
+    val categoryFragment = CategoryFragment()
+    var curFragment: Fragment = searchTitleFragment
+    val fragments: Array<Fragment> = arrayOf(searchTitleFragment, surroundingsFragment, categoryFragment)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,9 +29,18 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener {
+
+        fragmentManager?.beginTransaction()
+            ?.add(R.id.searchContainer, searchTitleFragment)
+            ?.add(R.id.searchContainer, surroundingsFragment)
+            ?.hide(surroundingsFragment)
+            ?.add(R.id.searchContainer, categoryFragment)
+            ?.hide(categoryFragment)?.commit()
+
+        //상단 탭
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab?) {
-             
+
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -35,7 +48,12 @@ class SearchFragment : Fragment() {
             }
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-
+                tab?.let {
+                    fragmentManager?.beginTransaction()
+                        ?.show(fragments[tab.position])
+                        ?.hide(curFragment)?.commit()
+                    curFragment = fragments[tab.position]
+                }
             }
         })
     }
