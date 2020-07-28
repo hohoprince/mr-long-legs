@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             .hide(searchFragment)
             .add(R.id.container, profileFragment)
             .hide(profileFragment).commit()
-        supportActionBar?.title = "등록"
+        supportActionBar?.title = "목록"
 
         // 하단 탭 클릭시 화면 전환
         bottomNavigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
