@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     val registrationFragment = RegistrationFragment()
     val searchFragment = SearchFragment()
     val profileFragment = ProfileFragment()
-    var curFragment: Fragment = registrationFragment
+    var curFragment: Fragment = listFragment
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
