@@ -3,11 +3,16 @@
   <component name="WizardSettings">
     <option name="children">
       <map>
+<<<<<<< HEAD
         <entry key="imageWizard">
+=======
+        <entry key="vectorWizard">
+>>>>>>> 1f7a36242ebf6749172c322a50e99111b360730e
           <value>
             <PersistentState>
               <option name="children">
                 <map>
+<<<<<<< HEAD
                   <entry key="imageAssetPanel">
                     <value>
                       <PersistentState>
@@ -295,6 +300,16 @@
                         <option name="values">
                           <map>
                             <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+=======
+                  <entry key="vectorAssetStep">
+                    <value>
+                      <PersistentState>
+                        <option name="values">
+                          <map>
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_list" />
+                            <entry key="sourceFile" value="C:\Users\hohoprince\Downloads\icon(1).svg" />
+>>>>>>> 1f7a36242ebf6749172c322a50e99111b360730e
                           </map>
                         </option>
                       </PersistentState>

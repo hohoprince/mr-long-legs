@@ -8,28 +8,41 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    val listFragment = ListFragment()
     val registrationFragment = RegistrationFragment()
     val searchFragment = SearchFragment()
     val profileFragment = ProfileFragment()
     var curFragment: Fragment = registrationFragment
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
+            .add(R.id.container, listFragment)
             .add(R.id.container, registrationFragment)
+            .hide(registrationFragment)
             .add(R.id.container, searchFragment)
             .hide(searchFragment)
             .add(R.id.container, profileFragment)
             .hide(profileFragment).commit()
-        supportActionBar?.title = "등록"
-
-        // 하단 탭 클릭시 화면 전환
+        supportActionBar?.title = "목록"
 
         // 하단 탭 클릭시 화면 전환
         bottomNavigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.tab_list -> {
+                    if (curFragment !== listFragment) {
+                        supportFragmentManager.beginTransaction()
+                            .show(listFragment)
+                            .hide(curFragment).commit()
+                        curFragment = listFragment
+                        supportActionBar?.title = "목록"
+                    }
+                    true
+                }
                 R.id.tab_registration -> {
                     if (curFragment !== registrationFragment) {
                         supportFragmentManager.beginTransaction()

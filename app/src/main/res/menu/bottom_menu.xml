@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/tab_list"
+        android:title="목록"
+        android:icon="@drawable/ic_list"
+        />
+    <item
         android:id="@+id/tab_search"
         android:title="검색"
         android:icon="@drawable/ic_search"
