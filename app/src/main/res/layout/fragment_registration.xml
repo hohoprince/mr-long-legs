@@ -48,9 +48,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"></EditText>
+                <Spinner
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"></Spinner>
+
+                <Spinner
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"></Spinner>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -125,9 +129,25 @@
                 android:layout_height="wrap_content"
                 android:text="마감일"
                 android:paddingTop="20dp"></TextView>
-            <EditText
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="월"></TextView>
+                <NumberPicker
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일"></TextView>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -148,6 +168,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:background="@color/colorAccent"></ImageView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사진찍기"></Button>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가져오기"></Button>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
