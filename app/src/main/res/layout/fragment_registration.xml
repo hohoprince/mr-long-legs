@@ -23,6 +23,7 @@
                 android:text="제목"></TextView>
 
             <EditText
+                android:id="@+id/edit_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=""></EditText>
@@ -34,6 +35,7 @@
                 android:text="휴대폰 번호"></TextView>
 
             <EditText
+                android:id="@+id/edit_phoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></EditText>
 
@@ -49,10 +51,12 @@
                 android:orientation="horizontal">
 
                 <Spinner
+                    android:id="@+id/spnFirst"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"></Spinner>
 
                 <Spinner
+                    android:id="@+id/spnSecond"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"></Spinner>
 
@@ -63,11 +67,13 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/edit_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="주소"></EditText>
 
             <EditText
+                android:id="@+id/edit_detailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="상세주소"></EditText>
@@ -84,6 +90,7 @@
                 android:gravity="center_vertical">
 
                 <NumberPicker
+                    android:id="@+id/firstNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
 
@@ -94,6 +101,7 @@
                     ></TextView>
 
                 <NumberPicker
+                    android:id="@+id/secondNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
 
@@ -104,6 +112,7 @@
                     ></TextView>
 
                 <NumberPicker
+                    android:id="@+id/thirdNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
 
@@ -114,6 +123,7 @@
                     ></TextView>
 
                 <NumberPicker
+                    android:id="@+id/fourthNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
 
@@ -134,6 +144,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical">
                 <NumberPicker
+                    android:id="@+id/fifthNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
                 <TextView
@@ -141,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:text="월"></TextView>
                 <NumberPicker
+                    android:id="@+id/sixthNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
                 <TextView
@@ -155,6 +167,7 @@
                 android:text="내용"
                 android:paddingTop="20dp"></TextView>
             <EditText
+                android:id="@+id/edit_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></EditText>
 
@@ -165,6 +178,7 @@
                 android:paddingTop="20dp"></TextView>
 
             <ImageView
+                android:id="@+id/image_photo"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:background="@color/colorAccent"></ImageView>
@@ -193,16 +207,19 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/radioBtn_first"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="급해요"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/radioBtn_second"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="보통이에요"></RadioButton>
 
                 <RadioButton
+                    android:id="@+id/radioBtn_third"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="널널해요"></RadioButton>
