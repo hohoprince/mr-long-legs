@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
             .add(R.id.container, listFragment)
