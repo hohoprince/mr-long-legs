@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class registrationitemAdapter(val items: List<registration_item_Member>) : RecyclerView.Adapter<registrationitemAdapter.ViewHolder>() {
+class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : RecyclerView.Adapter<RegistrationItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.registration_history_item_layout, parent, false)

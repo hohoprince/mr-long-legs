@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1071609465339",
+    "firebase_url": "https://mrlonglegs-1e45c.firebaseio.com",
+    "project_id": "mrlonglegs-1e45c",
+    "storage_bucket": "mrlonglegs-1e45c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071609465339:android:9aa62c20ae7139ee71635e",
+        "android_client_info": {
+          "package_name": "com.kidari.mrlonglegs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071609465339-4q686427850msluo7hfb3j91uoq9mufs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kidari.mrlonglegs",
+            "certificate_hash": "30cc679a25961ffbfe7eadb7254ddb6cf8dbd3e2"
+          }
+        },
+        {
+          "client_id": "1071609465339-f9hhope2ndsvpn0tqackacbn4f49v3n2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxiWwyr9qOk0fSFx5zKa2-abJVvKfJwPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071609465339-f9hhope2ndsvpn0tqackacbn4f49v3n2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

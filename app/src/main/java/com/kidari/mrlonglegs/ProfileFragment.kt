@@ -26,40 +26,36 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<registration_item_Member>()
+        val list = ArrayList<RegistrationItemMember>()
 
 
         registration_item_button.setOnClickListener {
             list.clear()
             list.add(
-            registration_item_Member(
+            RegistrationItemMember(
                 "제목 기본값",
                 "등록일 기본값",
                 "비용 기본값",
                 "위치 기본값"
             )
             )
-            val recyclerAdapter = registrationitemAdapter(list)
+            val recyclerAdapter = RegistrationItemAdapter(list)
             recyclerview_profile.adapter = recyclerAdapter
         }
         did_item_button.setOnClickListener {
             list.clear()
             list.add(
-                registration_item_Member(
+                RegistrationItemMember(
                     "제목 기본값",
                     "등록일 기본값",
                     "비용 기본값",
                     "위치 기본값"
                 )
             )
-            val recyclerAdapter = registrationitemAdapter(list)
+            val recyclerAdapter = RegistrationItemAdapter(list)
             recyclerview_profile.adapter = recyclerAdapter
         }
 
         // 서포터 등록 버튼
-        regSupporterButton.setOnClickListener {
-            val intent = Intent(context, AddSupportActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
