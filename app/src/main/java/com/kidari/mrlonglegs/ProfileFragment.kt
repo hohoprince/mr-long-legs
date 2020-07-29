@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -53,6 +54,12 @@ class ProfileFragment : Fragment() {
             )
             val recyclerAdapter = registrationitemAdapter(list)
             recyclerview_profile.adapter = recyclerAdapter
+        }
+
+        // 서포터 등록 버튼
+        regSupporterButton.setOnClickListener {
+            val intent = Intent(context, AddSupportActivity::class.java)
+            startActivity(intent)
         }
     }
 }
