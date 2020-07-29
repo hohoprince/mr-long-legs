@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,6 +81,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:paddingTop="20dp"
                 android:text="요청일시"></TextView>
 
@@ -97,8 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="월"
-                    ></TextView>
+                    android:text="월"></TextView>
 
                 <NumberPicker
                     android:id="@+id/secondNumberPicker"
@@ -108,8 +108,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="일"
-                    ></TextView>
+                    android:text="일"></TextView>
 
                 <NumberPicker
                     android:id="@+id/thirdNumberPicker"
@@ -119,8 +118,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="시"
-                    ></TextView>
+                    android:text="시"></TextView>
 
                 <NumberPicker
                     android:id="@+id/fourthNumberPicker"
@@ -130,31 +128,35 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="분"
-                    ></TextView>
+                    android:text="분"></TextView>
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="마감일"
-                android:paddingTop="20dp"></TextView>
+                android:paddingTop="20dp"
+                android:text="마감일"></TextView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical">
+
                 <NumberPicker
                     android:id="@+id/fifthNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="월"></TextView>
+
                 <NumberPicker
                     android:id="@+id/sixthNumberPicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,8 +166,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내용"
-                android:paddingTop="20dp"></TextView>
+                android:paddingTop="20dp"
+                android:text="내용"></TextView>
+
             <EditText
                 android:id="@+id/edit_content"
                 android:layout_width="match_parent"
@@ -174,22 +177,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="사진"
-                android:paddingTop="20dp"></TextView>
+                android:paddingTop="20dp"
+                android:text="사진"></TextView>
 
             <ImageView
                 android:id="@+id/image_photo"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:background="@color/colorAccent"></ImageView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
+                    android:id="@+id/btn_capture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="사진찍기"></Button>
+
                 <Button
+                    android:id="@+id/btn_gallery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="가져오기"></Button>
@@ -228,8 +236,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="요청하기"
-                android:paddingTop="30dp"></Button>
+                android:paddingTop="30dp"
+                android:text="요청하기"></Button>
 
         </LinearLayout>
     </ScrollView>

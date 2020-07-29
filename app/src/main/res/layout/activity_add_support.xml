@@ -172,11 +172,18 @@
                         android:textSize="20dp"
                         android:layout_gravity="center_vertical"></TextView>
                 </LinearLayout>
-                <Button
+                <ImageView
+                    android:id="@+id/image_License"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:background="@mipmap/ic_profile2"
+                    android:layout_gravity="center_horizontal"></ImageView>
+                <Button
+                    android:id="@+id/btn_getLicense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:text=""
                     ></Button>
                 <TextView
                     android:layout_width="match_parent"
