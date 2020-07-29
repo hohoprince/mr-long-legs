@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 class diditemAdapter(val items: List<did_item_Member>) : RecyclerView.Adapter<diditemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.did_item_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.did_history_item_layout, parent, false)
         return ViewHolder(view)
     }
 

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 class registrationitemAdapter(val items: List<registration_item_Member>) : RecyclerView.Adapter<registrationitemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.registration_item_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.registration_history_item_layout, parent, false)
         return ViewHolder(view)
     }
 

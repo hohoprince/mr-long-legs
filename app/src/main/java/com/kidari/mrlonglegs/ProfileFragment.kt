@@ -20,7 +20,7 @@ class ProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        recyclerview.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerview_profile.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class ProfileFragment : Fragment() {
             )
             )
             val recyclerAdapter = registrationitemAdapter(list)
-            recyclerview.adapter = recyclerAdapter
+            recyclerview_profile.adapter = recyclerAdapter
         }
         did_item_button.setOnClickListener {
             list.clear()
@@ -52,7 +52,7 @@ class ProfileFragment : Fragment() {
                 )
             )
             val recyclerAdapter = registrationitemAdapter(list)
-            recyclerview.adapter = recyclerAdapter
+            recyclerview_profile.adapter = recyclerAdapter
         }
     }
 }
