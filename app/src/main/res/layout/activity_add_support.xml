@@ -18,12 +18,14 @@
             android:layout_marginTop="20dp">
 
             <ImageView
+                android:id="@+id/image_profile"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/ic_profile"></ImageView>
 
             <Button
+                android:id="@+id/btn_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

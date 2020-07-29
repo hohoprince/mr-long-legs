@@ -1,7 +1,9 @@
 package com.kidari.mrlonglegs
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -20,7 +22,7 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AddSupport : AppCompatActivity() {
+class AddSupportActivity : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 1
     lateinit var currentPhotoPath : String
 
@@ -28,27 +30,87 @@ class AddSupport : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_support)
 
+        btn_profile.setOnClickListener {
+            //check runtime permission
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                    PackageManager.PERMISSION_DENIED){
+                    //permission denied
+                    val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
+                    //show popup to request runtime permission
+                    requestPermissions(permissions, PERMISSION_CODE);
+                }
+                else{
+                    //permission already granted
+                    pickImageFromGallery();
+                }
+            }
+            else{
+                //system OS is < Marshmallow
+                pickImageFromGallery();
+            }
+        }
 
-        settingPermission() // 권한체크 시작
+        /*settingPermission() // 권한체크 시작
 
         btn_getLicense.setOnClickListener {
             startCapture()
-        }
+        }*/
 
     }
 
-    fun settingPermission(){
+    private fun pickImageFromGallery() {
+        //Intent to pick image
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_PICK_CODE)
+    }
+
+    companion object {
+        //image pick code
+        private val IMAGE_PICK_CODE = 1000;
+        //Permission code
+        private val PERMISSION_CODE = 1001;
+    }
+
+    //handle requested permission result
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when(requestCode){
+            PERMISSION_CODE -> {
+                if (grantResults.size >0 && grantResults[0] ==
+                    PackageManager.PERMISSION_GRANTED){
+                    //permission from popup granted
+                    pickImageFromGallery()
+                }
+                else{
+                    //permission from popup denied
+                    Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    //handle result of picked image
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
+            image_profile.setImageURI(data?.data)
+        }
+    }
+}
+
+    /*fun settingPermission(){
         var permis = object  : PermissionListener{
             //            어떠한 형식을 상속받는 익명 클래스의 객체를 생성하기 위해 다음과 같이 작성
             override fun onPermissionGranted() {
-                Toast.makeText(this@AddSupport, "권한 허가", Toast.LENGTH_SHORT)
+                Toast.makeText(this@AddSupportActivity, "권한 허가", Toast.LENGTH_SHORT)
                     .show()
             }
 
             override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-                Toast.makeText(this@AddSupport, "권한 거부", Toast.LENGTH_SHORT)
+                Toast.makeText(this@AddSupportActivity, "권한 거부", Toast.LENGTH_SHORT)
                     .show()
-                ActivityCompat.finishAffinity(this@AddSupport) // 권한 거부시 앱 종료
+                ActivityCompat.finishAffinity(this@AddSupportActivity) // 권한 거부시 앱 종료
             }
         }
 
@@ -71,8 +133,8 @@ class AddSupport : AppCompatActivity() {
                 }catch(ex: IOException){
                     null
                 }
-                photoFile?.also{
-                    val photoURI : Uri = FileProvider.getUriForFile(
+                photoFile?.also {
+                    val photoURI: Uri = FileProvider.getUriForFile(
                         this,
                         "org.techtown.capturepicture.fileprovider",
                         it
@@ -114,5 +176,5 @@ class AddSupport : AppCompatActivity() {
                 image_License.setImageBitmap(bitmap)
             }
         }
-    }
-}
+    }*/
+
