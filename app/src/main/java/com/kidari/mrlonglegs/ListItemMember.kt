@@ -1,6 +1,6 @@
 package com.kidari.mrlonglegs
 
-data class list_item_Member(
+data class ListItemMember(
     val list_item_name: String,
     val list_item_registrationdate: String,
     val list_item_pay: String,

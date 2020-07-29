@@ -1,7 +1,6 @@
 package com.kidari.mrlonglegs
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ListFragment : Fragment() {
 
@@ -25,22 +23,21 @@ class ListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         recyclerview_list.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
-        Log.d("dd","되ㅐ라")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<list_item_Member>()
+        val list = ArrayList<ListItemMember>()
         list.clear()
         list.add(
-            list_item_Member(
+            ListItemMember(
                 "제목 기본값",
                 "등록일 기본값",
                 "비용 기본값",
                 "위치 기본값"
             )
         )
-        val recyclerAdapter = listitemAdapter(list)
+        val recyclerAdapter = ListItemAdapter(list)
         recyclerview_list.adapter = recyclerAdapter
 
     }
