@@ -57,9 +57,5 @@ class ProfileFragment : Fragment() {
         }
 
         // 서포터 등록 버튼
-        regSupporterButton.setOnClickListener {
-            val intent = Intent(context, AddSupportActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
