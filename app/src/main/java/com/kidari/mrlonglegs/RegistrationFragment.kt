@@ -129,23 +129,59 @@ class RegistrationFragment : Fragment() {
             val database = FirebaseDatabase.getInstance()
             var phonenumber: String = registration_edit_phoneNum.text.toString()
             var title: String = registration_edit_title.text.toString()
-            var location: String = selectedItem.toString() + registration_edit_detailAddress.text.toString() + registration_edit_address.text.toString()
             var content : String = registration_edit_content.text.toString()
+            var dateMonth : String = firstNumberPicker.value.toString()
+            var dateDay : String = secondNumberPicker.value.toString()
+            var dateHour : String = thirdNumberPicker.value.toString()
+            var dateMinute : String = fourthNumberPicker.value.toString()
+            var dueDateMonth : String = fifthNumberPicker.value.toString()
+            var dueDateDay : String = sixthNumberPicker.value.toString()
+            var city : String = spnFirst.selectedItem.toString()
+            var county : String = spnSecond.selectedItem.toString()
+            var firstAddress : String = registration_edit_address.text.toString()
+            var secondAddress : String = registration_edit_detailAddress.text.toString()
+            var payment : String = edit_payment.text.toString()
+
+            var selectedRadioBtn : String = ""
+            if(radioBtn_first.isChecked){
+                selectedRadioBtn = radioBtn_first.text.toString()
+            }else if(radioBtn_second.isChecked){
+                selectedRadioBtn = radioBtn_second.text.toString()
+            }else if(radioBtn_third.isChecked){
+                selectedRadioBtn = radioBtn_third.text.toString()
+            }
             // 등록화면에서 입력한 값들을 저장하기 위한 변수
+
+            var date : String = dateMonth + "월" + dateDay + "일" + dateHour + "시" +dateMinute + "분"
+            var dueDate :String = dueDateMonth + "월" + dueDateDay + "일"
+            var loaction : String = "$city $county"
+            var address :String = "$firstAddress $secondAddress"
+
 
             db.collection("심부름").document("$phonenumber").set(errand)
             // 데이터베이스 심부름에 연결
 
-            val sendlocation =db.collection("심부름").document("$phonenumber")
             val sendcontent =db.collection("심부름").document("$phonenumber")
             val sendphonenumber =db.collection("심부름").document("$phonenumber")
             val sendtitle =db.collection("심부름").document("$phonenumber")
+            val senddate = db.collection("심부름").document("$phonenumber")
+            val sendduedate = db.collection("심부름").document("$phonenumber")
+            val sendlocation = db.collection("심부름").document("$phonenumber")
+            val sendaddress = db.collection("심부름").document("$phonenumber")
+            val sendstate = db.collection("심부름").document("$phonenumber")
+            val sendpayment = db.collection("심부름").document("$phonenumber")
             // 각 변수를 데이터베이스의 심부름 Collection 안에 있는 phonenumber Document에 연결
 
-            sendtitle.update("name", "$title")
+            sendtitle.update("title", "$title")
             sendphonenumber.update("phoneNumber", "$phonenumber")
             sendcontent.update("content", "$content")
-            sendlocation.update("location", "$location")
+            senddate.update("registrationTime", "$date")
+            sendduedate.update("regDay", "$dueDate")
+            sendlocation.update("location", "$loaction")
+            sendaddress.update("address", "$address")
+            sendstate.update("state", "$selectedRadioBtn")
+            sendpayment.update("payment", "$payment")
+
             //변수를 업데이트 하는 코드드
         }
 

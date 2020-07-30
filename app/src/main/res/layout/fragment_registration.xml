@@ -200,6 +200,16 @@
                     android:text="널널해요"></RadioButton>
             </RadioGroup>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="가격"></TextView>
+            <EditText
+                android:id="@+id/edit_payment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></EditText>
+
+
             <Button
                 android:id="@+id/registration_button_regist"
                 android:layout_width="match_parent"
