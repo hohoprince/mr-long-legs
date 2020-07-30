@@ -22,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("message")
 
-        myRef.setValue("멋쟁이 주영!")
+        myRef.setValue("김민규")
+
         setContentView(R.layout.activity_main)
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
