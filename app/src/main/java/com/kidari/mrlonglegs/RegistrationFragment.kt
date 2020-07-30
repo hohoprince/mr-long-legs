@@ -133,6 +133,7 @@ class RegistrationFragment : Fragment() {
             var content : String = registration_edit_content.text.toString()
             // 등록화면에서 입력한 값들을 저장하기 위한 변수
 
+
             db.collection("심부름").document("$phonenumber").set(errand)
             // 데이터베이스 심부름에 연결
 
