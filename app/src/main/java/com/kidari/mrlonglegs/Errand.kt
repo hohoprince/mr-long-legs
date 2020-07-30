@@ -4,7 +4,7 @@ import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-data class User (
+data class Errand (
     var phoneNumber: String? = "",
     var name: String? = "",
     var location: String? = "",
