@@ -148,6 +148,8 @@ class RegistrationFragment : Fragment() {
             sendlocation.update("location", "$location")
             //변수를 업데이트 하는 코드드
         }
+
+
     }
 
     private fun selectedRegion(region: String) {
