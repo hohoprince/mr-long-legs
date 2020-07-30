@@ -23,7 +23,7 @@
                 android:text="제목"></TextView>
 
             <EditText
-                android:id="@+id/edit_title"
+                android:id="@+id/registration_edit_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=""></EditText>
@@ -35,7 +35,7 @@
                 android:text="휴대폰 번호"></TextView>
 
             <EditText
-                android:id="@+id/edit_phoneNum"
+                android:id="@+id/registration_edit_phoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></EditText>
 
@@ -60,20 +60,16 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"></Spinner>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="검색"></Button>
             </LinearLayout>
 
             <EditText
-                android:id="@+id/edit_address"
+                android:id="@+id/registration_edit_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="주소"></EditText>
 
             <EditText
-                android:id="@+id/edit_detailAddress"
+                android:id="@+id/registration_edit_detailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="상세주소"></EditText>
@@ -170,38 +166,9 @@
                 android:text="내용"></TextView>
 
             <EditText
-                android:id="@+id/edit_content"
+                android:id="@+id/registration_edit_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></EditText>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:text="사진"></TextView>
-
-            <ImageView
-                android:id="@+id/image_photo"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:background="@color/colorAccent"></ImageView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/btn_capture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="사진찍기"></Button>
-
-                <Button
-                    android:id="@+id/btn_gallery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="가져오기"></Button>
-            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -234,6 +201,7 @@
             </RadioGroup>
 
             <Button
+                android:id="@+id/registration_button_regist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
