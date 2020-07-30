@@ -16,13 +16,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20dp">
-
+            <LinearLayout
+                android:id="@+id/layer_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
             <ImageView
+
                 android:id="@+id/image_profile"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/ic_profile"></ImageView>
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_profile"
@@ -54,12 +60,14 @@
                     android:background="@mipmap/ic_profile2"></ImageView>
 
                 <EditText
+                    android:id="@+id/edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="성 명"></EditText>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/edit_supPhoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -88,6 +96,7 @@
                     android:background="@mipmap/ic_profile2"></ImageView>
 
                 <EditText
+                    android:id="@+id/edit_nickName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="닉네임"></EditText>
@@ -106,6 +115,7 @@
                     android:background="@mipmap/ic_profile2"></ImageView>
 
                 <NumberPicker
+                    android:id="@+id/supNumPick_firstTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
                 <TextView
@@ -114,6 +124,7 @@
                     android:text="년"></TextView>
 
                 <NumberPicker
+                    android:id="@+id/supNumPick_secondTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
                 <TextView
@@ -122,6 +133,7 @@
                     android:text="월"></TextView>
 
                 <NumberPicker
+                    android:id="@+id/supNumPick_thirdTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></NumberPicker>
                 <TextView
@@ -143,10 +155,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:id="@+id/radioBtn_man"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="남 성"></RadioButton>
                 <RadioButton
+                    android:id="@+id/radioBtn_woman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="여 성"></RadioButton>
@@ -185,7 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text=""
+                    android:text="등록하기"
                     ></Button>
                 <TextView
                     android:layout_width="match_parent"
@@ -219,17 +233,29 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <Spinner
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <NumberPicker
+                        android:id="@+id/supNumPick_firstEndTime"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content"></Spinner>
-                    <Spinner
+                        android:layout_height="wrap_content"></NumberPicker>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="부터"></TextView>
+                    <NumberPicker
+                        android:id="@+id/supNumPick_secondTEndTime"
                         android:layout_width="100dp"
-                        android:layout_height="wrap_content"></Spinner>
+                        android:layout_height="wrap_content"></NumberPicker>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="까지"></TextView>
                 </LinearLayout>
             </LinearLayout>
 
             <Button
+                android:id="@+id/Btn_SuoRegistration"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/border_layout_green"

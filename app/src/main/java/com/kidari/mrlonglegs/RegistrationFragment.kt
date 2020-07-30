@@ -105,6 +105,8 @@ class RegistrationFragment : Fragment() {
                 requestPermission()
             }
         }
+
+
     }
 
     private fun selectedRegion(region:String){
