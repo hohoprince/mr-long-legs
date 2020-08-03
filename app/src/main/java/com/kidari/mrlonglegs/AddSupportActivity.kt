@@ -15,6 +15,10 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestore.*
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import kotlinx.android.synthetic.main.activity_add_support.*
@@ -31,6 +35,9 @@ class AddSupportActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_support)
+
+        val db = getInstance()
+        val errand = Errand()
 
         btn_profile.setOnClickListener {
             flag = 1
@@ -74,6 +81,36 @@ class AddSupportActivity : AppCompatActivity() {
                 //system OS is < Marshmallow
                 pickImageFromGallery();
             }
+        }
+
+        Btn_SuoRegistration.setOnClickListener {
+
+            var supName:String = edit_supName.text.toString()
+            var supPhoneNumber: String = edit_supPhoneNum.text.toString()
+            var supNickname:String = edit_nickName.text.toString()
+            var selectedSex :String = ""
+            if (radioBtn_man.isChecked)
+                selectedSex = radioBtn_man.text.toString()
+            else if(radioBtn_woman.isChecked)
+                selectedSex = radioBtn_woman.text.toString()
+            var supTimeFrom:String = supNumPick_firstEndTime.value.toString()
+            var supTimeTo:String = supNumPick_secondTEndTime.value.toString()
+
+            var supWorkTime : String = "$supTimeFrom 부터 $supTimeTo 까지"
+
+            db.collection("서포터").document("$supPhoneNumber").set(errand)
+
+            val sendSupName =db.collection("서포터").document("$supPhoneNumber")
+            val sendSupPhoneNum =db.collection("서포터").document("$supPhoneNumber")
+            val sendSupNickName =db.collection("서포터").document("$supPhoneNumber")
+            val sendSupSex =db.collection("서포터").document("$supPhoneNumber")
+            val sendSupWorkTime =db.collection("서포터").document("$supPhoneNumber")
+
+            sendSupName.update("SupName", "$supName")
+            sendSupPhoneNum.update("SupPhoneNum", "$supPhoneNumber")
+            sendSupNickName.update("SupNickName", "$supNickname")
+            sendSupSex.update("SupSex", "$selectedSex")
+            sendSupWorkTime.update("SupWorkTime", "$supWorkTime")
         }
     }
 

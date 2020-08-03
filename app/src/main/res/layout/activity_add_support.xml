@@ -60,14 +60,13 @@
                     android:background="@mipmap/ic_profile2"></ImageView>
 
                 <EditText
-                    android:id="@+id/edit_name"
+                    android:id="@+id/edit_supName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="성 명"></EditText>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/edit_supPhoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -79,6 +78,7 @@
                     android:background="@mipmap/ic_profile2"></ImageView>
 
                 <EditText
+                    android:id="@+id/edit_supPhoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="핸드폰 번호"></EditText>
@@ -103,46 +103,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@mipmap/ic_profile2"></ImageView>
-
-                <NumberPicker
-                    android:id="@+id/supNumPick_firstTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></NumberPicker>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="년"></TextView>
-
-                <NumberPicker
-                    android:id="@+id/supNumPick_secondTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></NumberPicker>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="월"></TextView>
-
-                <NumberPicker
-                    android:id="@+id/supNumPick_thirdTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></NumberPicker>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="일"></TextView>
-            </LinearLayout>
-
-            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -168,6 +129,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -212,6 +174,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -255,6 +218,7 @@
             </LinearLayout>
 
             <Button
+                android:layout_marginTop="20dp"
                 android:id="@+id/Btn_SuoRegistration"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
