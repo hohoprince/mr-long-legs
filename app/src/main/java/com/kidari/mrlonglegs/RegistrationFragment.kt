@@ -150,6 +150,25 @@ class RegistrationFragment : Fragment() {
             }
             // 등록화면에서 입력한 값들을 저장하기 위한 변수
 
+            var selectedCategory : String = ""
+            if (categoryOne.isChecked){
+                selectedCategory = categoryOne.text.toString()
+            }else if(categoryTwo.isChecked){
+                selectedCategory = categoryTwo.text.toString()
+            }else if(categoryThree.isChecked){
+                selectedCategory = categoryThree.text.toString()
+            }else if(categoryFour.isChecked){
+                selectedCategory = categoryFour.text.toString()
+            }else if(categoryFive.isChecked){
+                selectedCategory = categoryFive.text.toString()
+            }else if(categorySix.isChecked){
+                selectedCategory = categorySix.text.toString()
+            }else if(categorySeven.isChecked){
+                selectedCategory = categorySeven.text.toString()
+            }else if(categoryEight.isChecked){
+                selectedCategory = categoryEight.text.toString()
+            }
+
             var date : String = dateMonth + "월" + dateDay + "일" + dateHour + "시" +dateMinute + "분"
             var dueDate :String = dueDateMonth + "월" + dueDateDay + "일"
             var location : String = "$city $county"
@@ -157,7 +176,7 @@ class RegistrationFragment : Fragment() {
 
 
             val tempErrand = Errand(phonenumber, location, address, payment, date, dueDate,
-                content, title, selectedRadioBtn)
+                content, title, selectedRadioBtn, selectedCategory)
             db.collection("심부름").document().set(tempErrand)
             // 데이터베이스 심부름에 연결
         }

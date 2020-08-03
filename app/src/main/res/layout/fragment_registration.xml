@@ -221,24 +221,28 @@
                             android:weightSum="4">
 
                             <RadioButton
+                                android:id="@+id/categoryOne"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="청소"
                                 android:layout_weight="1"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categoryTwo"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="반려동물"
                                 android:layout_weight="1"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categoryThree"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="딜리버리"
                                 android:layout_weight="1"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categoryFour"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="벌레퇴치"
@@ -251,24 +255,28 @@
                             android:orientation="horizontal"
                             android:weightSum="4">
                             <RadioButton
+                                android:id="@+id/categoryFive"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="육아"
                                 android:layout_weight="1"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categorySix"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="수리"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categorySeven"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="간병  "
                                 android:layout_weight="1"></RadioButton>
 
                             <RadioButton
+                                android:id="@+id/categoryEight"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="봉사  "
