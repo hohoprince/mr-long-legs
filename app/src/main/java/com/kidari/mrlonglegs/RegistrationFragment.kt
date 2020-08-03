@@ -159,7 +159,7 @@ class RegistrationFragment : Fragment() {
 
 
             val tempErrand = Errand(phonenumber, location, address, payment, date, dueDate, content, title)
-            db.collection("심부름").document("$phonenumber").set(tempErrand)
+            db.collection("심부름").document().set(tempErrand)
             // 데이터베이스 심부름에 연결
         }
 
