@@ -1,6 +1,5 @@
 package com.kidari.mrlonglegs
 
-import android.app.LauncherActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import kotlinx.android.synthetic.main.fragment_list.*
@@ -64,8 +62,7 @@ class ListFragment : Fragment() {
     }
 
     fun toListItemMember(document: QueryDocumentSnapshot): ListItemMember {
-        val item = ListItemMember(document["title"].toString(), document["regDay"].toString(),
+        return ListItemMember(document["title"].toString(), document["regDay"].toString(),
             document["payment"].toString(), document["location"].toString())
-        return item
     }
 }

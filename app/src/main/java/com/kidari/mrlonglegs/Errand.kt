@@ -7,10 +7,11 @@ import com.google.firebase.database.IgnoreExtraProperties
 data class Errand (
     var phoneNumber: String? = "",
     var location: String? = "",
+    var address: String? = "",
     var payment: String? = "",
     var regDay: String? = "",
+    var dueDay: String? = "",
     var content: String? = "",
-    var name: String? = "",
     var title: String? = ""
 ) {
 
@@ -19,11 +20,11 @@ data class Errand (
         return mapOf(
             "phoneNumber" to phoneNumber,
             "location" to location,
+            "address" to address,
             "payment" to payment,
-            "content" to content,
             "regDay" to regDay,
+            "dueDay" to dueDay,
             "content" to content,
-            "name" to name,
             "title" to title
         )
     }
