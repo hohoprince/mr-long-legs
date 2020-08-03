@@ -2,17 +2,21 @@ package com.kidari.mrlonglegs
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
-    val user = User("최성훈", "hoot0512@gmail.com", "010-9301-0512", true)
+    var user: FirebaseUser? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +35,16 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val list = ArrayList<RegistrationItemMember>()
 
+        // 로그아웃 버튼
+        logoutButton.setOnClickListener {
+            context?.let { it ->
+                AuthUI.getInstance()
+                    .signOut(it)
+                    .addOnCompleteListener {
+                        Log.d("dddd", "로그아웃 성공")
+                    }
+            }
+        }
 
         registration_item_button.setOnClickListener {
             list.clear()
@@ -56,6 +70,8 @@ class ProfileFragment : Fragment() {
                     "위치 기본값"
                 )
             )
+
+
             val recyclerAdapter = RegistrationItemAdapter(list)
             recyclerview_profile.adapter = recyclerAdapter
         }
@@ -65,5 +81,11 @@ class ProfileFragment : Fragment() {
             val intent = Intent(context, AddSupportActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun setUI() {
+        tvName.text = user?.displayName
+        tvEmail.text = user?.email
+        ivProfile.setImageURI(user?.photoUrl)
     }
 }

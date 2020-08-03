@@ -51,4 +51,8 @@ dependencies {
     implementation 'gun0912.ted:tedpermission:2.2.3'
     implementation "org.jetbrains.anko:anko-commons:0.10.2"
     implementation 'com.google.firebase:firebase-storage-ktx:19.1.1'
+
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation 'com.google.android.gms:play-services-auth:18.1.0'
 }
