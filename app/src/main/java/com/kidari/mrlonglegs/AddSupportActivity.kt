@@ -18,6 +18,7 @@ import androidx.core.content.FileProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestore.*
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
@@ -36,8 +37,13 @@ class AddSupportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_support)
 
+
         val db = getInstance()
-        val errand = Errand()
+        val errand2 = Errand2()
+        supNumPick_firstEndTime.minValue = 0
+        supNumPick_firstEndTime.maxValue = 23
+        supNumPick_secondTEndTime.minValue = 0
+        supNumPick_secondTEndTime.maxValue = 59
 
         btn_profile.setOnClickListener {
             flag = 1
@@ -98,19 +104,10 @@ class AddSupportActivity : AppCompatActivity() {
 
             var supWorkTime : String = "$supTimeFrom 부터 $supTimeTo 까지"
 
-            db.collection("서포터").document("$supPhoneNumber").set(errand)
+            val tempErrand = Errand2(supName, supPhoneNumber, supNickname, selectedSex, supWorkTime)
+            db.collection("서포").document().set(tempErrand)
 
-            val sendSupName =db.collection("서포터").document("$supPhoneNumber")
-            val sendSupPhoneNum =db.collection("서포터").document("$supPhoneNumber")
-            val sendSupNickName =db.collection("서포터").document("$supPhoneNumber")
-            val sendSupSex =db.collection("서포터").document("$supPhoneNumber")
-            val sendSupWorkTime =db.collection("서포터").document("$supPhoneNumber")
 
-            sendSupName.update("SupName", "$supName")
-            sendSupPhoneNum.update("SupPhoneNum", "$supPhoneNumber")
-            sendSupNickName.update("SupNickName", "$supNickname")
-            sendSupSex.update("SupSex", "$selectedSex")
-            sendSupWorkTime.update("SupWorkTime", "$supWorkTime")
         }
     }
 
