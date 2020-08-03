@@ -64,7 +64,7 @@ class ListFragment : Fragment() {
     }
 
     fun toListItemMember(document: QueryDocumentSnapshot): ListItemMember {
-        val item = ListItemMember(document["name"].toString(), document["regDate"].toString(),
+        val item = ListItemMember(document["title"].toString(), document["regDay"].toString(),
             document["payment"].toString(), document["location"].toString())
         return item
     }
