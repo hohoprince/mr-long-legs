@@ -46,8 +46,6 @@ class RegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var selectedItem: String? = ""
         val db = FirebaseFirestore.getInstance()
-        val errand = Errand() // Errand 데이터 클래스를 연결
-
 
         val spnFirst: Spinner = view.findViewById(R.id.spnFirst)
         val spnSecond: Spinner = view.findViewById(R.id.spnSecond)
@@ -158,7 +156,8 @@ class RegistrationFragment : Fragment() {
             var address :String = "$firstAddress $secondAddress"
 
 
-            val tempErrand = Errand(phonenumber, location, address, payment, date, dueDate, content, title)
+            val tempErrand = Errand(phonenumber, location, address, payment, date, dueDate,
+                content, title, selectedRadioBtn)
             db.collection("심부름").document().set(tempErrand)
             // 데이터베이스 심부름에 연결
         }

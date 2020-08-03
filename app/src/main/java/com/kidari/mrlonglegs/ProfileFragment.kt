@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
+
+    val user = User("최성훈", "hoot0512@gmail.com", "010-9301-0512", true)
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +45,7 @@ class ProfileFragment : Fragment() {
             val recyclerAdapter = RegistrationItemAdapter(list)
             recyclerview_profile.adapter = recyclerAdapter
         }
+
         did_item_button.setOnClickListener {
             list.clear()
             list.add(

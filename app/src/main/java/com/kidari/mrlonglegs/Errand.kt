@@ -12,7 +12,8 @@ data class Errand (
     var regDay: String? = "",
     var dueDay: String? = "",
     var content: String? = "",
-    var title: String? = ""
+    var title: String? = "",
+    var urgencyDegree: String? = ""
 ) {
 
     @Exclude
@@ -25,7 +26,8 @@ data class Errand (
             "regDay" to regDay,
             "dueDay" to dueDay,
             "content" to content,
-            "title" to title
+            "title" to title,
+            "urgencyDegree" to urgencyDegree
         )
     }
 }
