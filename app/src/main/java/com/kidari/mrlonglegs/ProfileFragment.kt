@@ -12,10 +12,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
+
+    val db = FirebaseFirestore.getInstance()
+    val list = ArrayList<RegistrationItemMember>()
+    val recyclerAdapter = RegistrationItemAdapter(list)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,13 +33,12 @@ class ProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        recyclerview_profile.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerview_profile.layoutManager =
+            LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<RegistrationItemMember>()
-
         // 로그아웃 버튼
         logoutButton.setOnClickListener {
             context?.let { it ->
@@ -46,18 +51,10 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
             list.clear()
-            list.add(
-            RegistrationItemMember(
-                "제목 기본값",
-                "등록일 기본값",
-                "비용 기본값",
-                "위치 기본값"
-            )
-            )
-            val recyclerAdapter = RegistrationItemAdapter(list)
-            recyclerview_profile.adapter = recyclerAdapter
+            loadMyRegErrand()
         }
 
         did_item_button.setOnClickListener {
@@ -70,10 +67,6 @@ class ProfileFragment : Fragment() {
                     "위치 기본값"
                 )
             )
-
-
-            val recyclerAdapter = RegistrationItemAdapter(list)
-            recyclerview_profile.adapter = recyclerAdapter
         }
 
         // 서포터 등록 버튼
@@ -81,6 +74,31 @@ class ProfileFragment : Fragment() {
             val intent = Intent(context, AddSupportActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    fun loadMyRegErrand() {
+        db.collection("심부름")
+            .whereEqualTo("email", (activity as MainActivity).user.email)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    list.add(toItem(document))
+                }
+                recyclerAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun toItem(document: QueryDocumentSnapshot): RegistrationItemMember {
+        return RegistrationItemMember(
+            document.data["title"] as String,
+            document.data["regDay"] as String,
+            document.data["payment"] as String,
+            document.data["location"] as String
+        )
     }
 
     fun setUI() {

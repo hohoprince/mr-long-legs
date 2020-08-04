@@ -19,14 +19,14 @@ class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.registration_item_name.text = item.registration_item_name
+        holder.registration_item_title.text = item.registration_item_title
         holder.registration_item_registrationdate.text = item.registration_item_registrationdate
         holder.registration_item_location.text = item.registration_itme_location
         holder.registration_item_pay.text = item.registration_itme_pay
     }
 
     inner class ViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        var registration_item_name = itemview.findViewById<TextView>(R.id.registration_item_name)
+        var registration_item_title = itemview.findViewById<TextView>(R.id.registration_item_name)
         var registration_item_registrationdate = itemview.findViewById<TextView>(R.id.registration_item_registrationdate)
         var registration_item_location = itemview.findViewById<TextView>(R.id.registration_item_location)
         var registration_item_pay = itemview.findViewById<TextView>(R.id.registration_item_pay)
