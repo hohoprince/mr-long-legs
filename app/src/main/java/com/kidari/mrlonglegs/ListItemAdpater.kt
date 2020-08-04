@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ListItemAdapter(val items: List<ListItemMember>) : RecyclerView.Adapter<ListItemAdapter.ViewHolder>() {
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_layout, parent, false)
         return ViewHolder(view)
@@ -22,6 +23,10 @@ class ListItemAdapter(val items: List<ListItemMember>) : RecyclerView.Adapter<Li
         holder.list_item_registrationdate.text = item.list_item_registrationdate
         holder.list_item_location.text = item.list_item_location
         holder.list_item_pay.text = item.list_item_pay
+
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClick(it, position)
+        }
     }
 
     inner class ViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {

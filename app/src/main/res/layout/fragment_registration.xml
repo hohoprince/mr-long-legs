@@ -214,11 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="4">
+
 
                             <RadioButton
                                 android:id="@+id/categoryOne"
@@ -247,13 +243,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="벌레퇴치"
                                 android:layout_weight="1"></RadioButton>
-                        </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="4">
                             <RadioButton
                                 android:id="@+id/categoryFive"
                                 android:layout_width="wrap_content"
@@ -281,7 +271,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="봉사  "
                                 android:layout_weight="1"></RadioButton>
-                        </LinearLayout>
+
                     </RadioGroup>
 
             </LinearLayout>
