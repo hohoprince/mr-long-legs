@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -37,7 +38,8 @@ class ListFragment : Fragment() {
 
         recyclerAdapter.setItemClickListener(object : ListItemAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
-                Log.d("sss", "${position}")
+                val intent = Intent(context, DetailsActivity::class.java)
+                startActivity(intent)
             }
         })
     }
