@@ -15,7 +15,9 @@ data class Errand (
     var content: String? = "",
     var title: String? = "",
     var urgencyDegree: String? = "",
-    var category: String? = ""
+    var category: String? = "",
+    var supporter:String? = null,
+    var state: String = "수행 전"
 ) {
 
     @Exclude

@@ -59,15 +59,7 @@ class ProfileFragment : Fragment() {
 
         // 수행 내역 조회
         did_item_button.setOnClickListener {
-            list.clear()
-            list.add(
-                RegistrationItemMember(
-                    "제목 기본값",
-                    "등록일 기본값",
-                    "비용 기본값",
-                    "위치 기본값"
-                )
-            )
+            loadMyDidErrand()
         }
 
         // 서포터 등록 버튼
@@ -80,6 +72,23 @@ class ProfileFragment : Fragment() {
     fun loadMyRegErrand() {
         db.collection("심부름")
             .whereEqualTo("email", (activity as MainActivity).user.email)
+            .get()
+            .addOnSuccessListener { documents ->
+                list.clear()
+                for (document in documents) {
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                    list.add(toItem(document))
+                }
+                recyclerAdapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    fun loadMyDidErrand() {
+        db.collection("심부름")
+            .whereEqualTo("supporter", (activity as MainActivity).user.email)
             .get()
             .addOnSuccessListener { documents ->
                 list.clear()
