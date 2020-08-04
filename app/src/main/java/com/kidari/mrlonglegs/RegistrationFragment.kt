@@ -34,6 +34,7 @@ import java.util.*
 @Suppress("UNREACHABLE_CODE")
 class RegistrationFragment : Fragment() {
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -181,6 +182,7 @@ class RegistrationFragment : Fragment() {
                 db.collection("심부름").document().set(tempErrand)
             }
             // 데이터베이스 심부름에 연결
+            Toast.makeText(getActivity(), "등록되었습니다", Toast.LENGTH_SHORT).show()
         }
     }
 
