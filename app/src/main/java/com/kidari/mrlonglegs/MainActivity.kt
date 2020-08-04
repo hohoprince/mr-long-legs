@@ -13,10 +13,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val RC_SIGN_IN = 111
+const val TAG = "dbdb"
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     val searchFragment = SearchFragment()
     val profileFragment = ProfileFragment()
     var curFragment: Fragment = listFragment
+    var googleUser: FirebaseUser? = null
+    lateinit var user: User
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,9 +123,35 @@ class MainActivity : AppCompatActivity() {
 
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
-                val user = FirebaseAuth.getInstance().currentUser
-                profileFragment.user = user
-                profileFragment.setUI()
+                googleUser = FirebaseAuth.getInstance().currentUser
+                googleUser?.let {
+                    val docRef = db.collection("사용자")
+                        .document("${googleUser?.email}")
+                    docRef.get()
+                        .addOnSuccessListener { document ->
+                            if (document != null) {
+                                // db에 사용자 있음
+                                val data = document.data
+                                user = User()
+                                user.name = data?.get("name") as String
+                                user.email = data?.get("email") as String
+                                user.phoneNumber = data?.get("phoneNumber") as String
+                                user.isSupporter = data?.get("isSupporter") as Boolean
+                            } else {
+                                // db에 사용자 없음
+                                user.name = googleUser?.displayName.toString()
+                                user.email = googleUser?.email.toString()
+                                user.phoneNumber = googleUser?.phoneNumber.toString()
+                                user.isSupporter = false
+                            }
+                            Log.d(TAG, "사용자 로그인 $user")
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.d(TAG, "get failed with ", exception)
+                        }
+                    profileFragment.setUI()
+                }
+
             } else {
 
             }

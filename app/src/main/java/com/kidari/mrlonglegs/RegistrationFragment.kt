@@ -174,14 +174,14 @@ class RegistrationFragment : Fragment() {
             var location : String = "$city $county"
             var address :String = "$firstAddress $secondAddress"
 
-
-            val tempErrand = Errand(phonenumber, location, address, payment, date, dueDate,
-                content, title, selectedRadioBtn, selectedCategory)
-            db.collection("심부름").document().set(tempErrand)
+            val user = (activity as MainActivity).googleUser
+            user?.let {
+                val tempErrand = Errand(user.email, phonenumber, location, address, payment, date, dueDate,
+                    content, title, selectedRadioBtn, selectedCategory)
+                db.collection("심부름").document().set(tempErrand)
+            }
             // 데이터베이스 심부름에 연결
         }
-
-
     }
 
     private fun selectedRegion(region: String) {

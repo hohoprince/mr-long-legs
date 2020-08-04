@@ -17,8 +17,6 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
-    var user: FirebaseUser? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -86,8 +84,10 @@ class ProfileFragment : Fragment() {
     }
 
     fun setUI() {
-        tvName.text = user?.displayName
-        tvEmail.text = user?.email
-        Glide.with(this).load(user?.photoUrl).into(ivProfile)
+        val googleUser = (activity as MainActivity).googleUser
+        tvName.text = googleUser?.displayName
+        tvEmail.text = googleUser?.email
+        Glide.with(this).load(googleUser?.photoUrl).into(ivProfile)
+        Log.d("dddd", "${googleUser?.uid}")
     }
 }

@@ -5,6 +5,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Errand (
+    var email: String? = "",
     var phoneNumber: String? = "",
     var location: String? = "",
     var address: String? = "",
@@ -20,6 +21,7 @@ data class Errand (
     @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
+            "email" to email,
             "phoneNumber" to phoneNumber,
             "location" to location,
             "address" to address,
