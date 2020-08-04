@@ -132,17 +132,33 @@ class MainActivity : AppCompatActivity() {
                             if (document != null) {
                                 // db에 사용자 있음
                                 val data = document.data
-                                user = User()
-                                user.name = data?.get("name") as String
-                                user.email = data?.get("email") as String
-                                user.phoneNumber = data?.get("phoneNumber") as String
-                                user.isSupporter = data?.get("isSupporter") as Boolean
+                                if (data != null) {
+                                    user = User(
+                                        name = data?.get("name") as String,
+                                        email = data?.get("email") as String,
+                                        phoneNumber = data?.get("phoneNumber") as String,
+                                        isSupporter = data?.get("isSupporter") as Boolean
+                                    )
+                                } else {
+                                    // db에 사용자 없음
+                                    user = User(
+                                        name = googleUser?.displayName.toString(),
+                                        email = googleUser?.email.toString(),
+                                        phoneNumber = googleUser?.phoneNumber.toString(),
+                                        isSupporter = false
+                                    )
+                                    // 파이어베이스에 사용자 추가
+                                    db.collection("사용자")
+                                        .add(user)
+                                        .addOnSuccessListener { documentReference ->
+                                            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                                        }
+                                        .addOnFailureListener { e ->
+                                            Log.w(TAG, "Error adding document", e)
+                                        }
+                                }
                             } else {
-                                // db에 사용자 없음
-                                user.name = googleUser?.displayName.toString()
-                                user.email = googleUser?.email.toString()
-                                user.phoneNumber = googleUser?.phoneNumber.toString()
-                                user.isSupporter = false
+                                Log.d(TAG, "No such document")
                             }
                             Log.d(TAG, "사용자 로그인 $user")
                         }
