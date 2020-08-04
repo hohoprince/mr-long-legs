@@ -51,11 +51,13 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        // 신청 내역 조회
         recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
             loadMyRegErrand()
         }
 
+        // 수행 내역 조회
         did_item_button.setOnClickListener {
             list.clear()
             list.add(
