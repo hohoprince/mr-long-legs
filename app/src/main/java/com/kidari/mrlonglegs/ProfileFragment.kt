@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
@@ -42,6 +43,7 @@ class ProfileFragment : Fragment() {
                     .signOut(it)
                     .addOnCompleteListener {
                         Log.d("dddd", "로그아웃 성공")
+                        (activity as MainActivity).startLogin()
                     }
             }
         }
@@ -86,6 +88,6 @@ class ProfileFragment : Fragment() {
     fun setUI() {
         tvName.text = user?.displayName
         tvEmail.text = user?.email
-        ivProfile.setImageURI(user?.photoUrl)
+        Glide.with(this).load(user?.photoUrl).into(ivProfile)
     }
 }
