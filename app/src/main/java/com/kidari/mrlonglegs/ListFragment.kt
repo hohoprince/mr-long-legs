@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import kotlinx.android.synthetic.main.activity_registration_list.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
 class ListFragment : Fragment() {
@@ -32,6 +34,12 @@ class ListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         recyclerview_list.layoutManager =
             LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
+
+        recyclerAdapter.setItemClickListener(object : ListItemAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                Log.d("sss", "${position}")
+            }
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +49,7 @@ class ListFragment : Fragment() {
             loadData()
         }
         recyclerview_list.adapter = recyclerAdapter
+
     }
 
     fun loadData() {

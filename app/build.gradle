@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.google.firebase:firebase-analytics:17.4.4'
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:26.1.0'

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
@@ -105,8 +106,7 @@ class AddSupportActivity : AppCompatActivity() {
             var supWorkTime : String = "$supTimeFrom 부터 $supTimeTo 까지"
 
             val tempErrand = Errand2(supName, supPhoneNumber, supNickname, selectedSex, supWorkTime)
-            db.collection("서포").document().set(tempErrand)
-
+            db.collection("서포터").document().set(tempErrand)
 
         }
     }
