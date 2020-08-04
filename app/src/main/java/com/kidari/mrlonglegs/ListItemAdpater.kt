@@ -30,4 +30,14 @@ class ListItemAdapter(val items: List<ListItemMember>) : RecyclerView.Adapter<Li
         var list_item_location = itemview.findViewById<TextView>(R.id.list_item_location)
         var list_item_pay = itemview.findViewById<TextView>(R.id.list_item_pay)
     }
+
+    interface ItemClickListener {
+        fun onClick(view: View, position: Int)
+    }
+
+    private lateinit var itemClickListener: ItemClickListener
+
+    fun setItemClickListener(itemClickListener: ItemClickListener){
+        this.itemClickListener = itemClickListener
+    }
 }
