@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
                                         name = data?.get("name") as String,
                                         email = data?.get("email") as String,
                                         phoneNumber = data?.get("phoneNumber") as String,
-                                        isSupporter = data?.get("isSupporter") as Boolean
+                                        supporter = data?.get("supporter") as Boolean
                                     )
                                 } else {
                                     // db에 사용자 없음
@@ -145,17 +145,10 @@ class MainActivity : AppCompatActivity() {
                                         name = googleUser?.displayName.toString(),
                                         email = googleUser?.email.toString(),
                                         phoneNumber = googleUser?.phoneNumber.toString(),
-                                        isSupporter = false
+                                        supporter = false
                                     )
                                     // 파이어베이스에 사용자 추가
-                                    db.collection("사용자")
-                                        .add(user)
-                                        .addOnSuccessListener { documentReference ->
-                                            Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-                                        }
-                                        .addOnFailureListener { e ->
-                                            Log.w(TAG, "Error adding document", e)
-                                        }
+                                    db.collection("사용자").document("${user.email}").set(user)
                                 }
                             } else {
                                 Log.d(TAG, "No such document")
