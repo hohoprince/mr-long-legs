@@ -53,7 +53,6 @@ class ProfileFragment : Fragment() {
 
         recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
-            list.clear()
             loadMyRegErrand()
         }
 
@@ -81,6 +80,7 @@ class ProfileFragment : Fragment() {
             .whereEqualTo("email", (activity as MainActivity).user.email)
             .get()
             .addOnSuccessListener { documents ->
+                list.clear()
                 for (document in documents) {
                     Log.d(TAG, "${document.id} => ${document.data}")
                     list.add(toItem(document))

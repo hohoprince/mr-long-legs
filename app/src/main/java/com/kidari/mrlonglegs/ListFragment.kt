@@ -53,10 +53,10 @@ class ListFragment : Fragment() {
     }
 
     fun loadData() {
-        list.clear()
         db.collection("심부름")
             .get()
             .addOnSuccessListener { result ->
+                list.clear()
                 for (document in result) {
                     list.add(toListItemMember(document))
                     recyclerAdapter.notifyDataSetChanged()
