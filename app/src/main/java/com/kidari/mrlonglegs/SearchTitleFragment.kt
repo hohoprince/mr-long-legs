@@ -19,6 +19,7 @@ class SearchTitleFragment : Fragment() {
 
     val db = FirebaseFirestore.getInstance()
     val items = ArrayList<SearchItemMember>()
+    var stringitems = ""
     val recyclerAdapter = SearchItemAdapter(items)
 
     override fun onCreateView(
@@ -45,12 +46,13 @@ class SearchTitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        searchView.setOnSearchClickListener {
-            val title = searchView.query.toString()
-            // db에서 title 검색
-
+        loadData()
+        search_title_btn.setOnClickListener {
+            val title = search_title_edit.text.toString()
+            loadStringData(title)
         }
-       loadData()
+
+
         searchTitleRecyclerView.adapter = recyclerAdapter
     }
 
@@ -62,7 +64,6 @@ class SearchTitleFragment : Fragment() {
                 items.clear()
                 for (document in result) {
                     items.add(toListItemMember(document))
-
                     recyclerAdapter.notifyDataSetChanged()
                     Log.d(TAG, "${document.id} => ${document.data["name"]}")
                 }
@@ -70,8 +71,29 @@ class SearchTitleFragment : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)
             }
+    }
 
-
+    fun loadStringData(string: String) {
+        db.collection("심부름")
+            .get()
+            .addOnSuccessListener { result ->
+                items.clear()
+                for (document in result) {
+                    stringitems = document.data["title"].toString()
+                    if(stringitems.contains(string)){
+                        items.add(toListItemMember(document))
+                        recyclerAdapter.notifyDataSetChanged()
+                        Log.d(TAG, "${document.id} => ${document.data["name"]}")
+                    }
+                    else{
+                        Log.d(TAG, "${document.id} => ${document.data["name"]}")
+                    }
+                    Log.d(TAG, "${document.id} => ${document.data["name"]}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "Error getting documents: ", exception)
+            }
     }
 
     fun toListItemMember(document: QueryDocumentSnapshot): SearchItemMember {
