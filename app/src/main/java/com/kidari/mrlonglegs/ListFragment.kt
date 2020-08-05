@@ -38,7 +38,10 @@ class ListFragment : Fragment() {
 
         recyclerAdapter.setItemClickListener(object : ListItemAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
-                val intent = Intent(context, DetailsActivity::class.java)
+                val item = list[position]
+                val intent = Intent(context, DetailsActivity::class.java).apply {
+                    putExtra("id", item.list_item_id)
+                }
                 startActivity(intent)
             }
         })
@@ -73,7 +76,7 @@ class ListFragment : Fragment() {
     }
 
     fun toListItemMember(document: QueryDocumentSnapshot): ListItemMember {
-        return ListItemMember(document["title"].toString(), document["regDay"].toString(),
+        return ListItemMember(document.id, document["title"].toString(), document["regDay"].toString(),
             document["payment"].toString(), document["location"].toString())
     }
 }

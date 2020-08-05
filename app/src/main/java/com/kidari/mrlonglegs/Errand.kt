@@ -1,12 +1,15 @@
 package com.kidari.mrlonglegs
 
+import android.net.Uri
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Errand (
+    var name: String? = "",
     var email: String? = "",
     var phoneNumber: String? = "",
+    var photoUrl: String? = "",
     var location: String? = "",
     var address: String? = "",
     var payment: String? = "",
@@ -23,6 +26,7 @@ data class Errand (
     @Exclude
     fun toMap(): Map<String, Any?> {
         return mapOf(
+            "name" to name,
             "email" to email,
             "phoneNumber" to phoneNumber,
             "location" to location,
