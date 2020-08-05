@@ -50,6 +50,9 @@ class SearchTitleFragment : Fragment() {
         search_title_btn.setOnClickListener {
             val title = search_title_edit.text.toString()
             loadStringData(title)
+            if(title == ""){
+                loadData()
+            }
         }
 
 
