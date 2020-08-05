@@ -177,7 +177,8 @@ class RegistrationFragment : Fragment() {
 
             val user = (activity as MainActivity).googleUser
             user?.let {
-                val tempErrand = Errand(user.email, phonenumber, location, address, payment, date, dueDate,
+                val tempErrand = Errand(user.displayName, user.email, phonenumber,
+                    user.photoUrl.toString(), location, address, payment, date, dueDate,
                     content, title, selectedRadioBtn, selectedCategory)
                 db.collection("심부름").document().set(tempErrand)
             }
