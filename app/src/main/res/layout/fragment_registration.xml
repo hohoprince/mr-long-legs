@@ -272,6 +272,12 @@
                                 android:text="봉사  "
                                 android:layout_weight="1"></RadioButton>
 
+                        <RadioButton
+                            android:id="@+id/categoryEtc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="기타"></RadioButton>
+
                     </RadioGroup>
 
             </LinearLayout>

@@ -159,6 +159,8 @@ class RegistrationFragment : Fragment() {
                 selectedCategory = categorySeven.text.toString()
             }else if(categoryEight.isChecked){
                 selectedCategory = categoryEight.text.toString()
+            }else if(categoryEtc.isChecked){
+                selectedCategory = categoryEtc.text.toString()
             }
 
             var date : String = dateMonth + "월" + dateDay + "일" + dateHour + "시" +dateMinute + "분"
