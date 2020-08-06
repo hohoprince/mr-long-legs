@@ -42,7 +42,10 @@ class SearchTitleFragment : Fragment() {
         recyclerAdapter.setItemClickListener(object :
             SearchItemAdapter.ItemClickListener {
             override fun onClick(view: View, position: Int) {
-                val intent = Intent(context, DetailsActivity::class.java)
+                val item = items[position]
+                val intent = Intent(context, DetailsActivity::class.java).apply {
+                    putExtra("id", item.list_item_id)
+                }
                 startActivity(intent)
             }
         })
@@ -54,7 +57,7 @@ class SearchTitleFragment : Fragment() {
         search_title_btn.setOnClickListener {
             val title = search_title_edit.text.toString()
             loadStringData(title)
-            if(title == ""){
+            if (title == "") {
                 loadData()
             }
         }
@@ -87,12 +90,11 @@ class SearchTitleFragment : Fragment() {
                 items.clear()
                 for (document in result) {
                     stringitems = document.data["title"].toString()
-                    if(stringitems.contains(string)){
+                    if (stringitems.contains(string)) {
                         items.add(toListItemMember(document))
                         recyclerAdapter.notifyDataSetChanged()
                         Log.d(TAG, "${document.id} => ${document.data["name"]}")
-                    }
-                    else{
+                    } else {
                         Log.d(TAG, "${document.id} => ${document.data["name"]}")
                     }
                     Log.d(TAG, "${document.id} => ${document.data["name"]}")
@@ -105,9 +107,8 @@ class SearchTitleFragment : Fragment() {
 
     fun toListItemMember(document: QueryDocumentSnapshot): SearchItemMember {
         return SearchItemMember(
-            document["title"].toString(), document["regDay"].toString(),
+            document.id, document["title"].toString(), document["regDay"].toString(),
             document["payment"].toString(), document["location"].toString()
         )
     }
-
 }
