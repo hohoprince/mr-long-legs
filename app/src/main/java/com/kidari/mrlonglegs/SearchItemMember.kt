@@ -1,9 +1,0 @@
-package com.kidari.mrlonglegs
-
-
-data class SearchItemMember(
-    val Search_item_title: String,
-    val Search_item_registrationdate: String,
-    val Search_item_pay: String,
-    val Search_item_location: String
-)
