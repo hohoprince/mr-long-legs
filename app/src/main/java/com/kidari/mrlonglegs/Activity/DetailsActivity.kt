@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.firepush.Fire
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.R
@@ -37,9 +38,28 @@ class DetailsActivity : AppCompatActivity() {
                     //get response here
                 }
                 .toIds("$usertoken").push()
+            updateSupporterOfErrand(id)
             Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
             finish()
         }
+    }
+
+    // 심부름에 서포터 정보 입력
+    fun updateSupporterOfErrand(id: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val sfDocRef = db.collection("심부름").document("$id")
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(sfDocRef)
+
+            // Note: this could be done without a transaction
+            //       by updating the population using FieldValue.increment()
+            transaction.update(sfDocRef, "supporter", user?.email)
+
+            // Success
+            null
+        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
     }
 
     fun loadData(id: String) {
@@ -67,7 +87,5 @@ class DetailsActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
             }
-
-
     }
 }
