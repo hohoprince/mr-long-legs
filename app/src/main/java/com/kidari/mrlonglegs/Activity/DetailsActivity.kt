@@ -49,6 +49,24 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
+    // 심부름에 서포터 정보 입력
+    fun updateSupporterOfErrand(id: String) {
+        val user = FirebaseAuth.getInstance().currentUser
+        val sfDocRef = db.collection("심부름").document("$id")
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(sfDocRef)
+
+            // Note: this could be done without a transaction
+            //       by updating the population using FieldValue.increment()
+            transaction.update(sfDocRef, "supporter", user?.email)
+
+            // Success
+            null
+        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
+    }
+
     fun loadData(id: String) {
 
         val docRef = db.collection("심부름").document("$id")
