@@ -175,7 +175,7 @@ class RegistrationFragment : Fragment() {
                 val tempErrand = Errand(
                     user.displayName, user.email, phonenumber,
                     user.photoUrl.toString(), location, address, payment, date, dueDate,
-                    content, title, selectedRadioBtn, selectedCategory, "","수행전",token
+                    content, title, selectedRadioBtn, selectedCategory, "",0,token
                 )
                 db.collection("심부름").document().set(tempErrand)
             }
