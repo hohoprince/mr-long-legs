@@ -6,64 +6,173 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.CategoryFragment">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/CategoryuTabLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="청소" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="반려동물" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="딜리버리" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="벌레퇴치" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="육아" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수리" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="간병" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="봉사" />
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+    <Button
+        android:id="@+id/btn_five"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/baby"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CategoryuTabLayout" />
+        app:layout_constraintEnd_toEndOf="parent"></Button>
+
+    <Button
+        android:id="@+id/btn_two"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/animal"
+        app:layout_constraintStart_toStartOf="@+id/btn_five"
+        app:layout_constraintBottom_toTopOf="@id/btn_five"></Button>
+
+    <Button
+        android:id="@+id/btn_eight"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/volunteer"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@id/btn_five"
+        app:layout_constraintTop_toBottomOf="@id/btn_five"/>
+
+    <Button
+        android:id="@+id/btn_one"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/clean"
+        app:layout_constraintTop_toTopOf="@id/btn_two"
+        app:layout_constraintStart_toStartOf="@id/btn_four"
+         />
+
+    <Button
+        android:id="@+id/btn_three"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/delivery"
+        app:layout_constraintTop_toTopOf="@id/btn_two"
+        app:layout_constraintStart_toStartOf="@id/btn_six"/>
+
+    <Button
+        android:id="@+id/btn_four"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/bug"
+        app:layout_constraintTop_toTopOf="@id/btn_five"
+        app:layout_constraintEnd_toStartOf="@id/btn_five"/>
+
+    <Button
+        android:id="@+id/btn_six"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/fix"
+        android:layout_marginStart="40dp"
+        app:layout_constraintTop_toTopOf="@id/btn_five"
+        app:layout_constraintStart_toEndOf="@id/btn_five"/>
+
+    <Button
+        android:id="@+id/btn_seven"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/nurse"
+        app:layout_constraintStart_toStartOf="@id/btn_four"
+        app:layout_constraintTop_toTopOf="@id/btn_eight"/>
+
+    <Button
+        android:id="@+id/btn_nine"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/icon"
+        app:layout_constraintTop_toTopOf="@id/btn_eight"
+        app:layout_constraintStart_toStartOf="@id/btn_six"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="청소"
+        app:layout_constraintStart_toStartOf="@id/btn_one"
+        app:layout_constraintTop_toBottomOf="@id/btn_one"
+        android:textSize="20dp"
+        android:layout_marginStart="21dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="반려동물"
+        app:layout_constraintStart_toStartOf="@id/btn_two"
+        app:layout_constraintTop_toBottomOf="@id/btn_two"
+        android:textSize="20dp"
+        android:layout_marginStart="4dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="딜리버리"
+        app:layout_constraintStart_toStartOf="@id/btn_three"
+        app:layout_constraintTop_toBottomOf="@id/btn_one"
+        android:textSize="20dp"
+        android:layout_marginStart="2dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="벌레"
+        app:layout_constraintStart_toStartOf="@id/btn_four"
+        app:layout_constraintTop_toBottomOf="@id/btn_four"
+        android:textSize="20dp"
+        android:layout_marginStart="22dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="육아"
+        app:layout_constraintStart_toStartOf="@id/btn_five"
+        app:layout_constraintTop_toBottomOf="@id/btn_five"
+        android:textSize="20dp"
+        android:layout_marginStart="22dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수리"
+        app:layout_constraintStart_toStartOf="@id/btn_six"
+        app:layout_constraintTop_toBottomOf="@id/btn_six"
+        android:textSize="20dp"
+        android:layout_marginStart="22dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="간호"
+        app:layout_constraintStart_toStartOf="@id/btn_seven"
+        app:layout_constraintTop_toBottomOf="@id/btn_seven"
+        android:textSize="20dp"
+        android:layout_marginStart="22dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="봉사"
+        app:layout_constraintStart_toStartOf="@id/btn_eight"
+        app:layout_constraintTop_toBottomOf="@id/btn_eight"
+        android:layout_marginStart="22dp"
+        android:textSize="20dp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기타"
+        app:layout_constraintStart_toStartOf="@id/btn_nine"
+        app:layout_constraintTop_toBottomOf="@id/btn_nine"
+        android:textSize="20dp"
+        android:layout_marginStart="22dp"
+        android:textStyle="bold"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
