@@ -4,13 +4,17 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.firepush.Fire
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kidari.mrlonglegs.*
 import com.kidari.mrlonglegs.DataClass.User
@@ -37,11 +41,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
+        Fire.init("AAAA-YDmyfs:APA91bFcoenc3m0ZBonb1L1iwTAySuECZviM9FD_1xiC8ehvhYVCnIjoJjl_h2mhGfEPM4cA1za2o0bL-Uc7mJBKRbQngc4ENyn83tXjQyzjL70m5NSVGNoZG1QOSXoW3iouKgwOwHWz")
 
         // firebase 인증
         startLogin()
+
 
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
@@ -142,7 +147,8 @@ class MainActivity : AppCompatActivity() {
                                         name = data?.get("name") as String,
                                         email = data?.get("email") as String,
                                         phoneNumber = data?.get("phoneNumber") as String,
-                                        supporter = data?.get("supporter") as Boolean
+                                        supporter = data?.get("supporter") as Boolean,
+                                        pushtoken = FirebaseInstanceId.getInstance().token.toString()
                                     )
                                 } else {
                                     // db에 사용자 없음
@@ -150,7 +156,8 @@ class MainActivity : AppCompatActivity() {
                                         name = googleUser?.displayName.toString(),
                                         email = googleUser?.email.toString(),
                                         phoneNumber = googleUser?.phoneNumber.toString(),
-                                        supporter = false
+                                        supporter = false,
+                                        pushtoken = FirebaseInstanceId.getInstance().token.toString()
                                     )
                                     // 파이어베이스에 사용자 추가
                                     db.collection("사용자").document("${user.email}").set(user)

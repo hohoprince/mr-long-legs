@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.Activity.MainActivity
 import com.kidari.mrlonglegs.DataClass.Errand
 import com.kidari.mrlonglegs.R
@@ -167,11 +168,12 @@ class RegistrationFragment : Fragment() {
             var address :String = "$firstAddress $secondAddress"
 
             val user = (activity as MainActivity).googleUser
+            val token:String = FirebaseInstanceId.getInstance().token.toString()
             user?.let {
                 val tempErrand = Errand(
                     user.displayName, user.email, phonenumber,
                     user.photoUrl.toString(), location, address, payment, date, dueDate,
-                    content, title, selectedRadioBtn, selectedCategory
+                    content, title, selectedRadioBtn, selectedCategory, "","수행전",token
                 )
                 db.collection("심부름").document().set(tempErrand)
             }

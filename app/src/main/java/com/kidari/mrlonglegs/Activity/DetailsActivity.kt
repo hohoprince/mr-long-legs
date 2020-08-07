@@ -6,7 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.firepush.Fire
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_details.tvName
@@ -14,6 +17,10 @@ import kotlinx.android.synthetic.main.activity_details.tvName
 class DetailsActivity : AppCompatActivity() {
 
     val db = FirebaseFirestore.getInstance()
+    lateinit var useremail : String
+    lateinit var usertoken : String
+    lateinit var usertitle : String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +30,13 @@ class DetailsActivity : AppCompatActivity() {
         loadData(id!!)
 
         btn_proposal.setOnClickListener {
+            Fire.create()
+                .setTitle("키다리아저씨")
+                .setBody("$usertitle"+"  심부름이 신청되었습니다")
+                .setCallback { pushCallback, exception ->
+                    //get response here
+                }
+                .toIds("$usertoken").push()
             Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
             finish()
         }
@@ -41,6 +55,9 @@ class DetailsActivity : AppCompatActivity() {
                     tvEmerg.text = document["urgencyDegree"].toString()
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
+                    useremail = document["email"].toString()
+                    usertitle = document["title"].toString()
+                    usertoken = document["token"].toString()
                     val uri = Uri.parse(document["photoUrl"].toString())
                     Glide.with(this).load(uri).into(ivDetailsProfile)
                 } else {
