@@ -12,6 +12,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.ktx.Firebase
 import com.kidari.mrlonglegs.*
 import com.kidari.mrlonglegs.DataClass.User
 import com.kidari.mrlonglegs.Fragment.ListFragment
@@ -42,6 +44,10 @@ class MainActivity : AppCompatActivity() {
 
         // firebase 인증
         startLogin()
+
+        val a= FirebaseInstanceId.getInstance().token
+
+        Log.d("토큰","$a")
 
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
@@ -103,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
+
 
     // firebase 로그인 시작
     fun startLogin() {
