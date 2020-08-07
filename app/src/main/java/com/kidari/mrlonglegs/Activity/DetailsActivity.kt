@@ -45,6 +45,7 @@ class DetailsActivity : AppCompatActivity() {
                 .toIds("$sbrtoken").push()
             Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
             updateErrandState(id)
+            updateSupporterOfErrand(id)
             finish()
         }
     }
@@ -86,11 +87,10 @@ class DetailsActivity : AppCompatActivity() {
                     sbrtoken = document["token"].toString()
                     sbrstate = document["state"].toString().toInt()
                     val uri = Uri.parse(document["photoUrl"].toString())
-                    if(sbrstate == 0){
+                    if (sbrstate == 0) {
                         btn_proposal.isEnabled = true
                         Log.d("태그", "상태0")
-                    }
-                    else{
+                    } else {
                         btn_proposal.isEnabled = false
                         Log.d("태그", "상태1,2")
                     }
@@ -104,8 +104,8 @@ class DetailsActivity : AppCompatActivity() {
             }
 
 
-
     }
+
     // 심부름에 서포터 정보 입력
     fun updateErrandState(id: String) {
         val sfDocRef = db.collection("심부름").document("$id")
