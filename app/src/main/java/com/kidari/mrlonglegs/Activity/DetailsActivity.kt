@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
@@ -95,6 +96,7 @@ class DetailsActivity : AppCompatActivity() {
                         Log.d("태그", "상태1,2")
                     }
                     Glide.with(this).load(uri).into(ivDetailsProfile)
+                    progressBar.visibility = View.GONE
                 } else {
                     Log.d(TAG, "No such document")
                 }
