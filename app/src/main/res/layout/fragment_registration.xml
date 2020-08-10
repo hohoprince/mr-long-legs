@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Activity.MainActivity">
 
 
     <ScrollView
@@ -202,90 +203,94 @@
             </RadioGroup>
 
             <LinearLayout
-                android:paddingTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="20dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="카테고리"></TextView>
-                    <RadioGroup
-                        android:layout_width="match_parent"
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <RadioButton
+                        android:id="@+id/categoryOne"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_weight="1"
+                        android:text="청소"></RadioButton>
 
+                    <RadioButton
+                        android:id="@+id/categoryTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="반려동물"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryOne"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="청소"
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categoryThree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="딜리버리"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryTwo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="반려동물"
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categoryFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="벌레퇴치"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryThree"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="딜리버리"
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categoryFive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="육아"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryFour"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="벌레퇴치"
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categorySix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="수리"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryFive"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="육아"
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categorySeven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="간병  "></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categorySix"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="수리"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categoryEight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="봉사  "></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categorySeven"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="간병  "
-                                android:layout_weight="1"></RadioButton>
+                    <RadioButton
+                        android:id="@+id/categoryEtc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="기타"></RadioButton>
 
-                            <RadioButton
-                                android:id="@+id/categoryEight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="봉사  "
-                                android:layout_weight="1"></RadioButton>
-
-                        <RadioButton
-                            android:id="@+id/categoryEtc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="기타"></RadioButton>
-
-                    </RadioGroup>
+                </RadioGroup>
 
             </LinearLayout>
+
             <TextView
-                android:paddingTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="20dp"
                 android:text="가격"></TextView>
+
             <EditText
                 android:id="@+id/edit_payment"
                 android:layout_width="match_parent"
@@ -296,7 +301,6 @@
                 android:id="@+id/registration_button_regist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="30dp"
                 android:text="요청하기"></Button>
 
         </LinearLayout>

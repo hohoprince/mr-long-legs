@@ -59,11 +59,15 @@ class ProfileFragment : Fragment() {
         // 신청 내역 조회
         recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
+            recyclerview_profile.visibility = View.INVISIBLE
+            progressBar4.visibility = View.VISIBLE
             loadMyRegErrand()
         }
 
         // 수행 내역 조회
         did_item_button.setOnClickListener {
+            recyclerview_profile.visibility = View.INVISIBLE
+            progressBar4.visibility = View.VISIBLE
             loadMyDidErrand()
         }
 
@@ -85,6 +89,8 @@ class ProfileFragment : Fragment() {
                     list.add(toItem(document))
                 }
                 recyclerAdapter.notifyDataSetChanged()
+                recyclerview_profile.visibility = View.VISIBLE
+                progressBar4.visibility = View.GONE
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
@@ -102,6 +108,8 @@ class ProfileFragment : Fragment() {
                     list.add(toItem(document))
                 }
                 recyclerAdapter.notifyDataSetChanged()
+                recyclerview_profile.visibility = View.VISIBLE
+                progressBar4.visibility = View.GONE
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
