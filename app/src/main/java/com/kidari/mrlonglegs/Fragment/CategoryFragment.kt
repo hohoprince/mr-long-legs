@@ -1,13 +1,26 @@
 package com.kidari.mrlonglegs.Fragment
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+import com.kidari.mrlonglegs.Activity.AddSupportActivity
+import com.kidari.mrlonglegs.Activity.CategoryActivity
+import com.kidari.mrlonglegs.Activity.DetailsActivity
+import com.kidari.mrlonglegs.Adapter.CategoryListAdapter
+import com.kidari.mrlonglegs.DataClass.CategoryMember
+import com.kidari.mrlonglegs.DataClass.User
 import com.kidari.mrlonglegs.R
+import kotlinx.android.synthetic.main.fragment_category.*
 
 class CategoryFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -16,4 +29,54 @@ class CategoryFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        btn_one.setOnClickListener {
+               val intent = Intent(context, CategoryActivity::class.java)
+                intent.putExtra("category", "청소")
+            startActivity(intent)
+        }
+        btn_two.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "반려동물")
+            startActivity(intent)
+        }
+        btn_three.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "딜리버리")
+            startActivity(intent)
+        }
+        btn_four.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "벌레")
+            startActivity(intent)
+        }
+        btn_five.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "육아")
+            startActivity(intent)
+        }
+        btn_six.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "수리")
+            startActivity(intent)
+        }
+        btn_seven.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "간호")
+            startActivity(intent)
+        }
+        btn_eight.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "봉사")
+            startActivity(intent)
+        }
+        btn_nine.setOnClickListener {
+            val intent = Intent(context, CategoryActivity::class.java)
+            intent.putExtra("category", "기타")
+            startActivity(intent)
+        }
+    }
 }

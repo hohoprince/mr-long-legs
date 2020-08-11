@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.DetailsActivity"></activity>
-        <activity android:name=".RegistrationList" />
+        <activity android:name=".Activity.CategoryActivity" />
         <activity android:name=".Activity.AddSupportActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
