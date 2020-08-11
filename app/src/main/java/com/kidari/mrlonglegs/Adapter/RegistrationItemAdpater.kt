@@ -25,6 +25,10 @@ class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : Recycle
         holder.registration_item_registrationdate.text = item.registration_item_registrationdate
         holder.registration_item_location.text = item.registration_itme_location
         holder.registration_item_pay.text = item.registration_itme_pay
+
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClick(it, position)
+        }
     }
 
     inner class ViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
@@ -32,5 +36,15 @@ class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : Recycle
         var registration_item_registrationdate = itemview.findViewById<TextView>(R.id.registration_item_registrationdate)
         var registration_item_location = itemview.findViewById<TextView>(R.id.registration_item_location)
         var registration_item_pay = itemview.findViewById<TextView>(R.id.registration_item_pay)
+    }
+
+    interface ItemClickListener {
+        fun onClick(view: View, position: Int)
+    }
+
+    private lateinit var itemClickListener: ItemClickListener
+
+    fun setItemClickListener(itemClickListener: ItemClickListener){
+        this.itemClickListener = itemClickListener
     }
 }
