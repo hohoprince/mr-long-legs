@@ -70,7 +70,6 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     fun loadData(id: String) {
-
         val docRef = db.collection("심부름").document("$id")
         docRef.get()
             .addOnSuccessListener { document ->
@@ -80,13 +79,21 @@ class DetailsActivity : AppCompatActivity() {
                     tvCategory.text = document["category"].toString()
                     tvContent.text = document["content"].toString()
                     tvLocation.text = document["location"].toString()
-                    tvEmerg.text = document["urgencyDegree"].toString()
+                    val emergState = document["urgencyDegree"].toString()
+                    tvEmerg.text = emergState
+                    when (emergState) {
+                        "급해요" -> ivState.setImageResource(R.drawable.ic_emerg_state_red_24)
+                        "보통이에요" -> ivState.setImageResource(R.drawable.ic_emerg_state_yellow_24)
+                        "널널해요" -> ivState.setImageResource(R.drawable.ic_emerg_state_green_24)
+                    }
+                    ivState.visibility = View.VISIBLE
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
                     sbremail = document["email"].toString()
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
                     sbrstate = document["state"].toString().toInt()
+
                     val uri = Uri.parse(document["photoUrl"].toString())
                     if (sbrstate == 0) {
                         btn_proposal.isEnabled = true

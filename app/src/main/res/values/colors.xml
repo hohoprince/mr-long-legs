@@ -5,4 +5,9 @@
     <color name="colorPrimaryLight">#8bf6ff</color>
     <color name="colorAccent">#00e5ff</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#a3a1a1</color>
+    <color name="colorStateRed">#f1404b</color>
+    <color name="colorStateYellow">#f9d423</color>
+    <color name="colorStateGreen">#3ac569</color>
+
 </resources>
