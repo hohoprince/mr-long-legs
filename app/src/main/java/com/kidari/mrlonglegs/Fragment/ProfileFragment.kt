@@ -15,7 +15,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.kidari.mrlonglegs.Activity.*
 import com.kidari.mrlonglegs.Adapter.ListItemAdapter
-import com.kidari.mrlonglegs.R
 import com.kidari.mrlonglegs.Adapter.RegistrationItemAdapter
 import com.kidari.mrlonglegs.DataClass.RegistrationItemMember
 import com.kidari.mrlonglegs.R
@@ -39,8 +38,6 @@ class ProfileFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         recyclerview_profile.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
