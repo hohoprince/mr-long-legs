@@ -63,7 +63,7 @@ class ListFragment : Fragment() {
     }
 
     fun loadData() {
-        db.collection("심부름")
+        db.collection("심부름").whereEqualTo("state",0)
             .get()
             .addOnSuccessListener { result ->
                 list.clear()
