@@ -21,30 +21,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="제목"></TextView>
+                android:text="제목"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <EditText
                 android:id="@+id/registration_edit_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:hint=""></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="휴대폰 번호"></TextView>
+                android:text="휴대폰 번호"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <EditText
                 android:id="@+id/registration_edit_phoneNum"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="요청지 주소"></TextView>
+                android:text="요청지 주소"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -54,7 +59,7 @@
                 <Spinner
                     android:id="@+id/spnFirst"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"></Spinner>
+                    android:layout_height="wrap_content" ></Spinner>
 
                 <Spinner
                     android:id="@+id/spnSecond"
@@ -67,12 +72,15 @@
                 android:id="@+id/registration_edit_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="주소"></EditText>
+                android:layout_margin="8dp"
+                android:hint="주소"
+                android:textColor="@color/design_default_color_on_secondary"></EditText>
 
             <EditText
                 android:id="@+id/registration_edit_detailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:hint="상세주소"></EditText>
 
             <TextView
@@ -80,7 +88,8 @@
                 android:layout_height="wrap_content"
                 android:baselineAligned="false"
                 android:paddingTop="20dp"
-                android:text="요청일시"></TextView>
+                android:text="요청일시"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -132,7 +141,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="마감일"></TextView>
+                android:text="마감일"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,18 +174,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="내용"></TextView>
+                android:text="내용"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <EditText
                 android:id="@+id/registration_edit_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"></EditText>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="20dp"
-                android:text="긴박유무"></TextView>
+                android:text="긴박유무"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -211,7 +224,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="카테고리"></TextView>
+                    android:text="카테고리"
+                    android:textColor="@color/design_default_color_on_secondary"></TextView>
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -224,14 +238,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="청소"></RadioButton>
+                        android:checked="true"
+                        android:text="청소"
+                        tools:ignore="DuplicateIds"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/categoryTwo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="반려동물"></RadioButton>
+                        android:text="반려동물"
+                        tools:ignore="DuplicateIds"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/categoryThree"
@@ -272,64 +289,8 @@
                         android:id="@+id/categoryEight"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"></RadioButton>
 
-
-                            <RadioButton
-                                android:id="@+id/categoryOne"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="청소"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categoryTwo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="반려동물"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categoryThree"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="딜리버리"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categoryFour"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="벌레퇴치"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categoryFive"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="육아"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categorySix"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="수리"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categorySeven"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="간병"
-                                android:layout_weight="1"></RadioButton>
-
-                            <RadioButton
-                                android:id="@+id/categoryEight"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="봉사"
-                                android:layout_weight="1"></RadioButton>
 
                         <RadioButton
                             android:id="@+id/categoryEtc"
@@ -345,18 +306,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="20dp"
-                android:text="가격"></TextView>
+                android:text="가격"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
 
             <EditText
                 android:id="@+id/edit_payment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></EditText>
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_margin="8dp"></EditText>
 
 
             <Button
                 android:id="@+id/registration_button_regist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/round_button"
+                android:padding="8dp"
                 android:text="요청하기"></Button>
 
         </LinearLayout>
