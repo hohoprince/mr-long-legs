@@ -19,24 +19,7 @@ data class Errand (
     var urgencyDegree: String? = "",
     var category: String? = "",
     var supporter:String? = null,
-    var state: String = "수행 전"
-) {
-
-    @Exclude
-    fun toMap(): Map<String, Any?> {
-        return mapOf(
-            "name" to name,
-            "email" to email,
-            "phoneNumber" to phoneNumber,
-            "location" to location,
-            "address" to address,
-            "payment" to payment,
-            "regDay" to regDay,
-            "dueDay" to dueDay,
-            "content" to content,
-            "title" to title,
-            "urgencyDegree" to urgencyDegree,
-            "category" to category
-        )
-    }
-}
+    var state: Int = 0,
+//    0 = 수행전, 1은 수행중 2는 수행완료
+    var token:String = ""
+)

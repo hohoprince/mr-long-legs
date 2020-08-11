@@ -24,7 +24,7 @@ class CategoryActivity: AppCompatActivity() {
     val list = ArrayList<CategoryMember>()
     val recyclerAdapter = CategoryListAdapter(list)
     var _category = ""
-
+//카테고리
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)

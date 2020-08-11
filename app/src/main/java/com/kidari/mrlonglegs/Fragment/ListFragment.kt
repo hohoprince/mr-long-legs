@@ -54,6 +54,8 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadData()
         refreshButton.setOnClickListener {
+            progressBar2.visibility = View.VISIBLE
+            recyclerview_list.visibility = View.INVISIBLE
             loadData()
         }
         recyclerview_list.adapter = recyclerAdapter
@@ -70,6 +72,8 @@ class ListFragment : Fragment() {
                     recyclerAdapter.notifyDataSetChanged()
                     Log.d(TAG, "${document.id} => ${document.data["name"]}")
                 }
+                recyclerview_list.visibility = View.VISIBLE
+                progressBar2.visibility = View.GONE
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "Error getting documents: ", exception)
