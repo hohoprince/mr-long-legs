@@ -80,20 +80,13 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text=" · "
-                    android:textSize="14sp" />
-
-                <TextView
                     android:id="@+id/tvLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:textSize="14sp" />
+
             </LinearLayout>
 
             <View
@@ -109,6 +102,26 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="서포터 정보"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/supporter_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/supporter_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:textSize="14sp" />
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -122,6 +135,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
 
         <TextView
             android:id="@+id/tvPayment"

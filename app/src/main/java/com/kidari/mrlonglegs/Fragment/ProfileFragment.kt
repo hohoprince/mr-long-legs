@@ -61,7 +61,7 @@ class ProfileFragment : Fragment() {
 
 
 
-        // 신청 내역 조회
+        // 내 심부름
         recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
             recyclerview_profile.visibility = View.INVISIBLE
@@ -81,7 +81,7 @@ class ProfileFragment : Fragment() {
             })
         }
 
-        // 수행 내역 조회
+        // 내가 한 심부름
         did_item_button.setOnClickListener {
             recyclerview_profile.visibility = View.INVISIBLE
             progressBar4.visibility = View.VISIBLE
@@ -99,7 +99,7 @@ class ProfileFragment : Fragment() {
             })
         }
 
-        // 수행중 내역 버튼
+        // 내가 하고 있는 심부름
         ing_item_button.setOnClickListener {
             recyclerview_profile.visibility = View.INVISIBLE
             progressBar4.visibility = View.VISIBLE

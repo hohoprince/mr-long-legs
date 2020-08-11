@@ -12,6 +12,16 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.activity_details.ivDetailsProfile
+import kotlinx.android.synthetic.main.activity_details.progressBar
+import kotlinx.android.synthetic.main.activity_details.tvCategory
+import kotlinx.android.synthetic.main.activity_details.tvContent
+import kotlinx.android.synthetic.main.activity_details.tvEmerg
+import kotlinx.android.synthetic.main.activity_details.tvLocation
+import kotlinx.android.synthetic.main.activity_details.tvName
+import kotlinx.android.synthetic.main.activity_details.tvPayment
+import kotlinx.android.synthetic.main.activity_details.tvTitle
+import kotlinx.android.synthetic.main.activity_registration_details.*
 
 class RegistrationItemDetailsActivity : AppCompatActivity() {
 
@@ -27,7 +37,6 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
         loadData(id!!)
         Log.d("태그", "상태전")
-
 
     }
 
@@ -63,6 +72,8 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     tvEmerg.text = document["urgencyDegree"].toString()
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
+                    supporter_email.text = document["supporter"].toString()
+                    supporter_name.text = document["name"].toString()
                     sbremail = document["email"].toString()
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
