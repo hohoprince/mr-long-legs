@@ -20,12 +20,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        
-        <activity android:name=".Activity.EditItemActivity"></activity>
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
             android:value="key" />
+        <activity
+            android:name=".Activity.EditItemActivity"
+            android:screenOrientation="locked"/>
         <activity
             android:name=".Activity.IngItemActivity"
             android:screenOrientation="locked" />
@@ -37,9 +38,6 @@
             android:screenOrientation="locked" />
         <activity
             android:name=".Activity.DetailsActivity"
-            android:screenOrientation="locked" />
-        <activity
-            android:name=".Activity.AddSupportActivity"
             android:screenOrientation="locked" />
         <activity
             android:name=".Activity.CategoryActivity"

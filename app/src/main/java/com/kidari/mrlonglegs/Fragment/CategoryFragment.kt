@@ -2,20 +2,11 @@ package com.kidari.mrlonglegs.Fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.firestore.FirebaseFirestore
-import com.kidari.mrlonglegs.Activity.AddSupportActivity
 import com.kidari.mrlonglegs.Activity.CategoryActivity
-import com.kidari.mrlonglegs.Activity.DetailsActivity
-import com.kidari.mrlonglegs.Adapter.CategoryListAdapter
-import com.kidari.mrlonglegs.DataClass.CategoryMember
-import com.kidari.mrlonglegs.DataClass.User
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.fragment_category.*
 

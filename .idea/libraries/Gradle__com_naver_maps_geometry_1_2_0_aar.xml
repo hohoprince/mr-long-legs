@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.naver.maps:geometry:1.2.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0bceb17198b26d0b180fc4114d286d64/jetified-geometry-1.2.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0bceb17198b26d0b180fc4114d286d64/jetified-geometry-1.2.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0bceb17198b26d0b180fc4114d286d64/jetified-geometry-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a969f29006574f870d694ed5a7dc8a6/jetified-geometry-1.2.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a969f29006574f870d694ed5a7dc8a6/jetified-geometry-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a969f29006574f870d694ed5a7dc8a6/jetified-geometry-1.2.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.naver.maps/geometry/1.2.0/138d4cfee091f636e2b2329957ad4c02bade560e/geometry-1.2.0-javadoc.jar!/" />
