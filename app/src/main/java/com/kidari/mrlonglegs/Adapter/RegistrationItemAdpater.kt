@@ -26,18 +26,26 @@ class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : Recycle
         holder.registration_item_registrationdate.text = item.registration_item_registrationdate
         holder.registration_item_location.text = item.registration_itme_location
         holder.registration_item_pay.text = item.registration_itme_pay
-        holder.list_item_progress.text = when (item.list_item_progress) {
+        val state = item.list_item_progress
+        holder.list_item_progress.text = when (state) {
             0 -> "수행 전"
             1 -> "수행 중"
             2 -> "수행 완료"
             else -> ""
         }
+        val imageColorIcon = when (state) {
+            0 -> R.drawable.ic_prog_state_blue_24
+            1 -> R.drawable.ic_emerg_state_yellow_24
+            2 -> R.drawable.ic_emerg_state_green_24
+            else -> R.drawable.ic_prog_state_gray_24
+        }
+
 
         // 심부름 진행도 이미지 변경
         for ((i, imageView) in holder.list_item_progImages.withIndex()) {
             imageView.setImageResource(R.drawable.ic_prog_state_gray_24)
-            if (i <= item.list_item_progress) {
-                imageView.setImageResource(R.drawable.ic_prog_state_blue_24)
+            if (i <= state) {
+                imageView.setImageResource(imageColorIcon)
             }
         }
 
