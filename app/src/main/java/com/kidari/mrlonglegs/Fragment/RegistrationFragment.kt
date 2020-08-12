@@ -16,6 +16,8 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.Activity.MainActivity
@@ -181,7 +183,9 @@ class RegistrationFragment : Fragment() {
                 db.collection("심부름").document().set(tempErrand)
             }
             // 데이터베이스 심부름에 연결
+
             Toast.makeText(getActivity(), "등록되었습니다", Toast.LENGTH_SHORT).show()
+            fragmentManager?.let { it1 -> refreshFragment(this, it1) }
         }
     }
 
@@ -198,5 +202,10 @@ class RegistrationFragment : Fragment() {
                 }
 
         }
+    }
+
+    fun refreshFragment(fragment: Fragment, fragmentManager: FragmentManager) {
+        var ft: FragmentTransaction = fragmentManager.beginTransaction()
+        ft.detach(fragment).attach(fragment).commit()
     }
 }
