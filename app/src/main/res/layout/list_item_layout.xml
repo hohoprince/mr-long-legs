@@ -71,7 +71,7 @@
                 android:layout_toRightOf="@id/list_item_location"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textStyle="bold" />
-<!--            심부름 비용-->
+            <!--            심부름 비용-->
 
         </RelativeLayout>
 

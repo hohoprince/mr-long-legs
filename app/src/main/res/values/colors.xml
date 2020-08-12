@@ -9,5 +9,6 @@
     <color name="colorStateRed">#f1404b</color>
     <color name="colorStateYellow">#f9d423</color>
     <color name="colorStateGreen">#3ac569</color>
+    <color name="colorStateBlue">#45d9fd</color>
 
 </resources>

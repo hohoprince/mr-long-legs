@@ -183,7 +183,8 @@ class ProfileFragment : Fragment() {
             document.data["title"] as String,
             document.data["regDay"] as String,
             document.data["payment"] as String,
-            document.data["location"] as String
+            document.data["location"] as String,
+            document["state"].toString().toInt()
         )
     }
 

@@ -17,17 +17,62 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/registration_item_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="제목"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/registration_item_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="2"
+                    android:text="제목"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivProgress1"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:srcCompat="@drawable/ic_prog_state_gray_24" />
+
+                    <ImageView
+                        android:id="@+id/ivProgress2"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:srcCompat="@drawable/ic_prog_state_gray_24" />
+
+                    <ImageView
+                        android:id="@+id/ivProgress3"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:srcCompat="@drawable/ic_prog_state_gray_24" />
+
+                    <TextView
+                        android:id="@+id/tvProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="수행상태"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
