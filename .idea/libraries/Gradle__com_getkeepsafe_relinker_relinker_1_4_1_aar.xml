@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.getkeepsafe.relinker:relinker:1.4.1@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d18f29783933341346b117025cf9ee/jetified-relinker-1.4.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d18f29783933341346b117025cf9ee/jetified-relinker-1.4.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/49d18f29783933341346b117025cf9ee/jetified-relinker-1.4.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getkeepsafe.relinker/relinker/1.4.1/dcdd67003f3757201a92a938f42a1d7f86617bc0/relinker-1.4.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.getkeepsafe.relinker/relinker/1.4.1/e433117796eeef9896b418aae1cb9a8822d0c31a/relinker-1.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -20,6 +20,7 @@ import com.kidari.mrlonglegs.Fragment.ListFragment
 import com.kidari.mrlonglegs.Fragment.ProfileFragment
 import com.kidari.mrlonglegs.Fragment.RegistrationFragment
 import com.kidari.mrlonglegs.Fragment.SearchFragment
+import com.naver.maps.map.UiSettings
 import kotlinx.android.synthetic.main.activity_main.*
 
 const val RC_SIGN_IN = 111
@@ -44,8 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         // firebase 인증
         startLogin()
-
-
         // 화면에 프래그먼트 추가
         supportFragmentManager.beginTransaction()
             .add(R.id.container, listFragment)
