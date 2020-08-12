@@ -87,7 +87,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
                     supporter_email.text = document["supporter"].toString()
-                    supporter_name.text = document["name"].toString()
+                    supporter_name.text = document["supporterName"].toString()
                     supporterInfo = document["supporter"].toString()
                     sbremail = document["email"].toString()
                     sbrtitle = document["title"].toString()

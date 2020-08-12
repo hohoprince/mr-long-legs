@@ -179,7 +179,7 @@ class EditItemActivity : AppCompatActivity() {
                 val tempErrand = Errand(
                     user.displayName, user.email, phonenumber,
                     user.photoUrl.toString(), location, address, payment, date, dueDate,
-                    content, title, selectedRadioBtn, selectedCategory, "", sbrstate, token
+                    content, title, selectedRadioBtn, selectedCategory, "", sbrstate, "",token
                 )
                 db.collection("심부름").document("$id").set(tempErrand)
             }

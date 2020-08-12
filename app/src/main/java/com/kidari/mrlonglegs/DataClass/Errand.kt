@@ -21,5 +21,6 @@ data class Errand (
     var supporter:String? = null,
     var state: Int = 0,
 //    0 = 수행전, 1은 수행중 2는 수행완료
+    var supporterName: String? = null,
     var token:String = ""
 )

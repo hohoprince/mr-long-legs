@@ -25,7 +25,6 @@ class DetailsActivity : AppCompatActivity() {
     lateinit var sbrtitle: String
     var sbrstate: Int = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
@@ -47,6 +46,7 @@ class DetailsActivity : AppCompatActivity() {
             Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
             updateErrandState(id)
             updateSupporterOfErrand(id)
+
             finish()
         }
     }
@@ -62,6 +62,7 @@ class DetailsActivity : AppCompatActivity() {
             // Note: this could be done without a transaction
             //       by updating the population using FieldValue.increment()
             transaction.update(sfDocRef, "supporter", user?.email)
+            transaction.update(sfDocRef, "supporterName", user?.displayName)
 
             // Success
             null
@@ -131,4 +132,5 @@ class DetailsActivity : AppCompatActivity() {
         }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
             .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
     }
+
 }

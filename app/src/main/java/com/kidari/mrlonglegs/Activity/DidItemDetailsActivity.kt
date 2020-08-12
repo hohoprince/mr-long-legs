@@ -52,7 +52,7 @@ class DidItemDetailsActivity : AppCompatActivity() {
             // Note: this could be done without a transaction
             //       by updating the population using FieldValue.increment()
             transaction.update(sfDocRef, "supporter", user?.email)
-
+            transaction.update(sfDocRef, "supporterName", user?.displayName)
             // Success
             null
         }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
