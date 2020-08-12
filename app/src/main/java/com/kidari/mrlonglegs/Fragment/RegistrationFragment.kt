@@ -73,7 +73,6 @@ class RegistrationFragment : Fragment() {
                 selectedItem = p0?.getItemAtPosition(p2).toString()
                 if (selectedItem == "서울특별시") {
                     selectedRegion(R.array.spinner_region_seoul.toString())
-                    return
                 } else if (selectedItem == "부산광역시") {
                     selectedRegion(R.array.spinner_region_busan.toString())
                 } else if (selectedItem == "대구광역시") {
@@ -111,8 +110,10 @@ class RegistrationFragment : Fragment() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                spnFirst.setSelection(0)
+                spnSecond.setSelection(0)
 
+                TODO("Not yet implemented")
             }
         }
         registration_button_regist.setOnClickListener {
@@ -196,49 +197,6 @@ class RegistrationFragment : Fragment() {
                     spnSecond.adapter = arrayAdapter
                 }
 
-        }
-    }
-
-    val REQUEST_IMAGE_CAPTURE = 1
-
-    // 카메라 권한 요청
-    private fun requestPermission() {
-        ActivityCompat.requestPermissions(
-            context as Activity, arrayOf(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA
-            ), REQUEST_IMAGE_CAPTURE
-        )
-    }
-
-    // 카메라 권한 체크
-    private fun checkPersmission(): Boolean {
-        return (context?.let {
-            ContextCompat.checkSelfPermission(
-                it,
-                android.Manifest.permission.CAMERA
-            )
-        } ==
-                PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(
-            context!!,
-            android.Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED)
-    }
-
-    // 권한요청 결과
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Log.d(
-                "TAG",
-                "Permission: " + permissions[0] + "was " + grantResults[0] + "카메라 허가 받음 예이^^"
-            )
-        } else {
-            Log.d("TAG", "카메라 허가 못받음 ㅠ 젠장!!")
         }
     }
 }
