@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs.Activity
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.firepush.Fire
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kidari.mrlonglegs.Adapter.RegistrationItemAdapter
+import com.kidari.mrlonglegs.DataClass.RegistrationItemMember
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_details.ivDetailsProfile
@@ -30,6 +33,8 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
     lateinit var sbrtoken: String
     lateinit var sbrtitle: String
     var sbrstate: Int = 0
+    val list = ArrayList<RegistrationItemMember>()
+    val recyclerAdapter = RegistrationItemAdapter(list)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,12 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
         loadData(id!!)
         Log.d("태그", "상태전")
 
+        btn_edit.setOnClickListener {
+            val intent = Intent(this, EditItemActivity::class.java).apply {
+                putExtra("id", id)
+            }
+            startActivity(intent)
+        }
     }
 
     // 심부름에 서포터 정보 입력
