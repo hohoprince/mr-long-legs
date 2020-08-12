@@ -32,8 +32,10 @@ class RegistrationItemAdapter(val items: List<RegistrationItemMember>) : Recycle
             2 -> "수행 완료"
             else -> ""
         }
+
         // 심부름 진행도 이미지 변경
         for ((i, imageView) in holder.list_item_progImages.withIndex()) {
+            imageView.setImageResource(R.drawable.ic_prog_state_gray_24)
             if (i <= item.list_item_progress) {
                 imageView.setImageResource(R.drawable.ic_prog_state_blue_24)
             }
