@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Activity.MainActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제목"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <EditText
+                android:id="@+id/edit_item_edit_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint=""></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="휴대폰 번호"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <EditText
+                android:id="@+id/edit_item_edit_phoneNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="요청지 주소"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/edit_item_spnFirst"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"></Spinner>
+
+                <Spinner
+                    android:id="@+id/edit_item_spnSecond"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"></Spinner>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edit_item_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="주소"
+                android:textColor="@color/design_default_color_on_secondary"></EditText>
+
+            <EditText
+                android:id="@+id/edit_item_detailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:hint="상세주소"></EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:paddingTop="20dp"
+                android:text="요청일시"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <NumberPicker
+                    android:id="@+id/edit_item_firstNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="월"></TextView>
+
+                <NumberPicker
+                    android:id="@+id/edit_item_secondNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일"></TextView>
+
+                <NumberPicker
+                    android:id="@+id/edit_item_thirdNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시"></TextView>
+
+                <NumberPicker
+                    android:id="@+id/edit_item_fourthNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="분"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="마감일"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <NumberPicker
+                    android:id="@+id/edit_item_fifthNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="월"></TextView>
+
+                <NumberPicker
+                    android:id="@+id/edit_item_sixthNumberPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></NumberPicker>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일"></TextView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="내용"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <EditText
+                android:id="@+id/edit_item_registration_edit_content"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:gravity="left|top"
+                android:hint="내용을 입력해주세요"></EditText>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="20dp"
+                android:text="긴박유무"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/edit_item_radioBtn_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="급해요"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/edit_item_radioBtn_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="보통이에요"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/edit_item_radioBtn_third"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="널널해요"></RadioButton>
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="카테고리"
+                    android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryOne"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="청소"
+                        tools:ignore="DuplicateIds"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="반려동물"
+                        tools:ignore="DuplicateIds"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryThree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="딜리버리"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="벌레퇴치"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryFive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="육아"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categorySix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="수리"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categorySeven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="간병  "></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryEight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="봉사"
+                        android:orientation="vertical"></RadioButton>
+
+
+                    <RadioButton
+                        android:id="@+id/edit_item_categoryEtc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="기타"></RadioButton>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:text="가격"
+                android:textColor="@color/design_default_color_on_secondary"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edit_item_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:textSize="24sp"></EditText>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="원"
+                    android:textColor="@color/fui_bgGitHub"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                </View>
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_edit_item_regist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/round_button"
+                android:padding="8dp"
+                android:text="수정하기"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
