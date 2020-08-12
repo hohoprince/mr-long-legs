@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.kidari.mrlonglegs.Adapter.RegistrationItemAdapter
 import com.kidari.mrlonglegs.DataClass.RegistrationItemMember
+import com.kidari.mrlonglegs.Fragment.ProfileFragment
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.activity_details.ivDetailsProfile
@@ -32,9 +33,11 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
     lateinit var sbremail: String
     lateinit var sbrtoken: String
     lateinit var sbrtitle: String
+    lateinit var supporterInfo: String
     var sbrstate: Int = 0
     val list = ArrayList<RegistrationItemMember>()
     val recyclerAdapter = RegistrationItemAdapter(list)
+    val registrationItemDetailsEnd : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,31 +47,29 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
         Log.d("태그", "상태전")
 
         btn_edit.setOnClickListener {
-            val intent = Intent(this, EditItemActivity::class.java).apply {
-                putExtra("id", id)
+            if (supporterInfo == "") {
+                val intent = Intent(this, EditItemActivity::class.java).apply {
+                    putExtra("id", id)
+                }
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "이미 수행중인 심부름은 수정이 불가능합니다.", Toast.LENGTH_SHORT).show()
             }
-            startActivity(intent)
+        }
+        btn_delete.setOnClickListener {
+            if (supporterInfo == "") {
+                db.collection("심부름").document("$id")
+                    .delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_SHORT).show()
+                    }
+                finish()
+
+            } else {
+                Toast.makeText(this, "이미 수행중인 심부릅은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
-
-    // 심부름에 서포터 정보 입력
-    fun updateSupporterOfErrand(id: String) {
-        val user = FirebaseAuth.getInstance().currentUser
-        val sfDocRef = db.collection("심부름").document("$id")
-
-        db.runTransaction { transaction ->
-            val snapshot = transaction.get(sfDocRef)
-
-            // Note: this could be done without a transaction
-            //       by updating the population using FieldValue.increment()
-            transaction.update(sfDocRef, "supporter", user?.email)
-
-            // Success
-            null
-        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
-            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-    }
-
     fun loadData(id: String) {
 
         val docRef = db.collection("심부름").document("$id")
@@ -85,6 +86,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     tvPayment.text = document["payment"].toString()
                     supporter_email.text = document["supporter"].toString()
                     supporter_name.text = document["name"].toString()
+                    supporterInfo = document["supporter"].toString()
                     sbremail = document["email"].toString()
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
@@ -103,20 +105,4 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
 
     }
 
-    // 심부름에 서포터 정보 입력
-    fun updateErrandState(id: String) {
-        val sfDocRef = db.collection("심부름").document("$id")
-
-        db.runTransaction { transaction ->
-            val snapshot = transaction.get(sfDocRef)
-
-            // Note: this could be done without a transaction
-            //       by updating the population using FieldValue.increment()
-            transaction.update(sfDocRef, "state", 1)
-
-            // Success
-            null
-        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
-            .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
-    }
 }
