@@ -26,6 +26,7 @@ class ProfileFragment : Fragment() {
     val list = ArrayList<RegistrationItemMember>()
     val recyclerAdapter = RegistrationItemAdapter(list)
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,6 +40,7 @@ class ProfileFragment : Fragment() {
         recyclerview_profile.layoutManager =
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -115,6 +117,7 @@ class ProfileFragment : Fragment() {
                     startActivity(intent)
                 }
             })
+            loadMyIngErrand()
         }
 
 
@@ -195,4 +198,5 @@ class ProfileFragment : Fragment() {
         Glide.with(this).load(googleUser?.photoUrl).into(ivProfile)
         Log.d("dddd", "${googleUser?.uid}")
     }
+
 }
