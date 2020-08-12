@@ -154,7 +154,9 @@ class MainActivity : AppCompatActivity() {
                                         email = data?.get("email") as String,
                                         phoneNumber = data?.get("phoneNumber") as String,
                                         supporter = data?.get("supporter") as Boolean,
-                                        pushtoken = FirebaseInstanceId.getInstance().token.toString()
+                                        pushtoken = FirebaseInstanceId.getInstance().token.toString(),
+                                        comCount = data?.get("comCount").toString().toInt(),
+                                        giveUpCount = data?.get("giveUpCount").toString().toInt()
                                     )
                                 } else {
                                     // db에 사용자 없음
@@ -172,13 +174,12 @@ class MainActivity : AppCompatActivity() {
                                 Log.d(TAG, "No such document")
                             }
                             Log.d(TAG, "사용자 로그인 $user")
+                            profileFragment.setUI()
                         }
                         .addOnFailureListener { exception ->
                             Log.d(TAG, "get failed with ", exception)
                         }
-                    profileFragment.setUI()
                 }
-
             } else {
                 finish()
             }

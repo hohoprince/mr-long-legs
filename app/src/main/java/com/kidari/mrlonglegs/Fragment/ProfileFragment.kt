@@ -41,7 +41,6 @@ class ProfileFragment : Fragment() {
             LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -119,9 +118,6 @@ class ProfileFragment : Fragment() {
             })
             loadMyIngErrand()
         }
-
-
-
     }
 
     fun loadMyRegErrand() {
@@ -193,9 +189,11 @@ class ProfileFragment : Fragment() {
 
     fun setUI() {
         val googleUser = (activity as MainActivity).googleUser
+        val user = (activity as MainActivity).user
         tvName.text = googleUser?.displayName
         tvEmail.text = googleUser?.email
         Glide.with(this).load(googleUser?.photoUrl).into(ivProfile)
-        Log.d("dddd", "${googleUser?.uid}")
+        tvComCount.text = user.comCount.toString()
+        tvGiveupCount.text = user.giveUpCount.toString()
     }
 }
