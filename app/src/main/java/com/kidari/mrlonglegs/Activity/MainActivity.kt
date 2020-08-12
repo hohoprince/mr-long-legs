@@ -126,6 +126,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        
+        if (requestCode == 600) {
+            if (resultCode == Activity.RESULT_OK) {
+                profileFragment.loadMyRegErrand()
+            }
+        }
+
+
         if (requestCode == RC_SIGN_IN) {
             val response = IdpResponse.fromResultIntent(data)
 

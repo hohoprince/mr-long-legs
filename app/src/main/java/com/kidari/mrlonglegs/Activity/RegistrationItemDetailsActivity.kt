@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs.Activity
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -62,8 +63,9 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     .delete()
                     .addOnSuccessListener {
                         Toast.makeText(this, "삭제되었습니다", Toast.LENGTH_SHORT).show()
+                        setResult(Activity.RESULT_OK)
+                        finish()
                     }
-                finish()
 
             } else {
                 Toast.makeText(this, "이미 수행중인 심부릅은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()

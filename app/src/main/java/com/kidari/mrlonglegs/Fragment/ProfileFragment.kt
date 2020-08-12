@@ -78,7 +78,7 @@ class ProfileFragment : Fragment() {
                     val intent = Intent(context, RegistrationItemDetailsActivity::class.java).apply {
                         putExtra("id", item.registration_item_id)
                     }
-                    startActivity(intent)
+                    activity?.startActivityForResult(intent, 600)
                 }
             })
         }
@@ -198,5 +198,4 @@ class ProfileFragment : Fragment() {
         Glide.with(this).load(googleUser?.photoUrl).into(ivProfile)
         Log.d("dddd", "${googleUser?.uid}")
     }
-
 }
