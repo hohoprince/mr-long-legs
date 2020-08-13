@@ -16,16 +16,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/search_title_edit"
-            android:layout_width="270dp"
-            android:layout_height="wrap_content"></EditText>
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"></EditText>
+
         <Button
             android:id="@+id/search_title_btn"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
             android:layout_marginStart="20dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_search"></Button>
+            android:layout_weight="1"
+            android:background="@drawable/ic_search"
+            android:backgroundTint="@color/colorGray"></Button>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

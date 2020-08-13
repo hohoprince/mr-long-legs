@@ -12,8 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Button"
+        android:background="@drawable/round_button_stroke"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
         android:src="@drawable/ic_baseline_refresh_24"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

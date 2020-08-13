@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     // firebase 로그인 시작
     fun startLogin() {
         val providers = arrayListOf(
@@ -123,65 +122,72 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        
-        if (requestCode == 600) {
-            if (resultCode == Activity.RESULT_OK) {
-                profileFragment.loadMyRegErrand()
-            }
-        }
 
-
-        if (requestCode == RC_SIGN_IN) {
-            val response = IdpResponse.fromResultIntent(data)
-
-            if (resultCode == Activity.RESULT_OK) {
-                // Successfully signed in
-                googleUser = FirebaseAuth.getInstance().currentUser
-                googleUser?.let {
-                    val docRef = db.collection("사용자")
-                        .document("${googleUser?.email}")
-                    docRef.get()
-                        .addOnSuccessListener { document ->
-                            if (document != null) {
-                                // db에 사용자 있음
-                                val data = document.data
-                                if (data != null) {
-                                    user = User(
-                                        name = data?.get("name") as String,
-                                        email = data?.get("email") as String,
-                                        phoneNumber = data?.get("phoneNumber") as String,
-                                        supporter = data?.get("supporter") as Boolean,
-                                        pushtoken = FirebaseInstanceId.getInstance().token.toString(),
-                                        comCount = data?.get("comCount").toString().toInt(),
-                                        giveUpCount = data?.get("giveUpCount").toString().toInt()
-                                    )
-                                } else {
-                                    // db에 사용자 없음
-                                    user = User(
-                                        name = googleUser?.displayName.toString(),
-                                        email = googleUser?.email.toString(),
-                                        phoneNumber = googleUser?.phoneNumber.toString(),
-                                        supporter = false,
-                                        pushtoken = FirebaseInstanceId.getInstance().token.toString()
-                                    )
-                                    // 파이어베이스에 사용자 추가
-                                    db.collection("사용자").document("${user.email}").set(user)
-                                }
-                            } else {
-                                Log.d(TAG, "No such document")
-                            }
-                            Log.d(TAG, "사용자 로그인 $user")
-                            profileFragment.setUI()
-                        }
-                        .addOnFailureListener { exception ->
-                            Log.d(TAG, "get failed with ", exception)
-                        }
+        when (requestCode) {
+            600 -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    profileFragment.loadMyRegErrand()
                 }
-            } else {
-                finish()
+            }
+
+            601 -> {
+                Log.d("dddd", "601")
+                if (resultCode == Activity.RESULT_OK) {
+                    profileFragment.loadMyIngErrand()
+                }
+            }
+
+            RC_SIGN_IN -> {
+                val response = IdpResponse.fromResultIntent(data)
+
+                if (resultCode == Activity.RESULT_OK) {
+                    // Successfully signed in
+                    googleUser = FirebaseAuth.getInstance().currentUser
+                    googleUser?.let {
+                        val docRef = db.collection("사용자")
+                            .document("${googleUser?.email}")
+                        docRef.get()
+                            .addOnSuccessListener { document ->
+                                if (document != null) {
+                                    // db에 사용자 있음
+                                    val data = document.data
+                                    if (data != null) {
+                                        user = User(
+                                            name = data?.get("name") as String,
+                                            email = data?.get("email") as String,
+                                            phoneNumber = data?.get("phoneNumber") as String,
+                                            supporter = data?.get("supporter") as Boolean,
+                                            pushtoken = FirebaseInstanceId.getInstance().token.toString(),
+                                            comCount = data?.get("comCount").toString().toInt(),
+                                            giveUpCount = data?.get("giveUpCount").toString().toInt()
+                                        )
+                                    } else {
+                                        // db에 사용자 없음
+                                        user = User(
+                                            name = googleUser?.displayName.toString(),
+                                            email = googleUser?.email.toString(),
+                                            phoneNumber = googleUser?.phoneNumber.toString(),
+                                            supporter = false,
+                                            pushtoken = FirebaseInstanceId.getInstance().token.toString()
+                                        )
+                                        // 파이어베이스에 사용자 추가
+                                        db.collection("사용자").document("${user.email}").set(user)
+                                    }
+                                } else {
+                                    Log.d(TAG, "No such document")
+                                }
+                                Log.d(TAG, "사용자 로그인 $user")
+                                profileFragment.setUI()
+                            }
+                            .addOnFailureListener { exception ->
+                                Log.d(TAG, "get failed with ", exception)
+                            }
+                    }
+                } else {
+                    finish()
+                }
             }
         }
     }

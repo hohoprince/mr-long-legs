@@ -19,6 +19,14 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:text="심부름 등록"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="24sp" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="제목"
@@ -29,11 +37,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:layout_marginBottom="16dp"
                 android:hint=""></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:paddingTop="20dp"
                 android:text="휴대폰 번호"
                 android:textColor="@color/design_default_color_on_secondary"></TextView>
@@ -42,11 +52,13 @@
                 android:id="@+id/registration_edit_phoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"></EditText>
+                android:layout_margin="8dp"
+                android:layout_marginBottom="16dp"></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:paddingTop="20dp"
                 android:text="요청지 주소"
                 android:textColor="@color/design_default_color_on_secondary"></TextView>
@@ -81,11 +93,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:layout_marginBottom="16dp"
                 android:hint="상세주소"></EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:baselineAligned="false"
                 android:paddingTop="20dp"
                 android:text="요청일시"
@@ -188,6 +202,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
                 android:paddingTop="20dp"
                 android:text="긴박유무"
                 android:textColor="@color/design_default_color_on_secondary"></TextView>
@@ -226,6 +241,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:text="카테고리"
                     android:textColor="@color/design_default_color_on_secondary"></TextView>
 
@@ -308,6 +324,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:paddingTop="20dp"
                 android:text="가격"
                 android:textColor="@color/design_default_color_on_secondary"></TextView>

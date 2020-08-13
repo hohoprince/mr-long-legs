@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs.Activity
 
+import android.app.Activity
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -50,6 +51,7 @@ class IngItemActivity : AppCompatActivity() {
             updateErrandState(id)
             updateSupporterOfErrand(id)
             countComplete() // 완료 횟수 증가
+            setResult(Activity.RESULT_OK)
             finish()
         }
 
@@ -65,6 +67,7 @@ class IngItemActivity : AppCompatActivity() {
             updategiveupErrandState(id)
             updategiveupSupporterOfErrand(id)
             countGiveup() // 포기 횟수 증가
+            setResult(Activity.RESULT_OK)
             finish()
         }
     }
