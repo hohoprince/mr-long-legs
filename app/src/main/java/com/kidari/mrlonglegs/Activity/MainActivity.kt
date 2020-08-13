@@ -147,6 +147,7 @@ class MainActivity : AppCompatActivity() {
                 if(resultCode == Activity.RESULT_FIRST_USER){
                     profileFragment.recyclerview_profile.visibility = View.INVISIBLE
                     listFragment.loadData()
+                    profileFragment.refreshUserInfo()
                 }
             }
 

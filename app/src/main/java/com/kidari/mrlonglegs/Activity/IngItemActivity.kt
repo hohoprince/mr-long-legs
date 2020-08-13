@@ -53,7 +53,6 @@ class IngItemActivity : AppCompatActivity() {
             updateSupporterOfErrand(id)
             setResult(Activity.RESULT_FIRST_USER)
             countComplete() // 완료 횟수 증가
-            finish()
         }
 
         btn_giveup.setOnClickListener {
@@ -69,7 +68,6 @@ class IngItemActivity : AppCompatActivity() {
             updategiveupSupporterOfErrand(id)
             setResult(Activity.RESULT_FIRST_USER)
             countGiveup() // 포기 횟수 증가
-            finish()
         }
     }
 
@@ -94,14 +92,18 @@ class IngItemActivity : AppCompatActivity() {
         val googleUser = FirebaseAuth.getInstance().currentUser
         val email = googleUser?.email!!
         val washingtonRef = db.collection("사용자").document("$email")
-        washingtonRef.update("giveUpCount", FieldValue.increment(1))
+        washingtonRef.update("giveUpCount", FieldValue.increment(1)).addOnSuccessListener {
+            finish()
+        }
     }
 
     fun countComplete() {
         val googleUser = FirebaseAuth.getInstance().currentUser
         val email = googleUser?.email!!
         val washingtonRef = db.collection("사용자").document("$email")
-        washingtonRef.update("comCount", FieldValue.increment(1))
+        washingtonRef.update("comCount", FieldValue.increment(1)).addOnSuccessListener {
+            finish()
+        }
     }
 
     fun loadData(id: String) {

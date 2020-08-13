@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mr-Long-Legs-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mr-Long-Legs-app.iml" group="MrLongLegs/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/MrLongLegs.iml" filepath="$PROJECT_DIR$/.idea/modules/MrLongLegs.iml" group="MrLongLegs" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MrLongLegs-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MrLongLegs-app.iml" group="MrLongLegs/app" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="MrLongLegs/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/git-MrLongLegs-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/git-MrLongLegs-app.iml" group="MrLongLegs/app" />
     </modules>
   </component>
 </project>

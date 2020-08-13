@@ -11,12 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.Activity.*
 import com.kidari.mrlonglegs.Adapter.ListItemAdapter
 import com.kidari.mrlonglegs.Adapter.RegistrationItemAdapter
 import com.kidari.mrlonglegs.DataClass.RegistrationItemMember
+import com.kidari.mrlonglegs.DataClass.User
 import com.kidari.mrlonglegs.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -61,7 +64,6 @@ class ProfileFragment : Fragment() {
         }
 
 
-
         // 내 심부름
         recyclerview_profile.adapter = recyclerAdapter
         registration_item_button.setOnClickListener {
@@ -74,9 +76,10 @@ class ProfileFragment : Fragment() {
                 RegistrationItemAdapter.ItemClickListener {
                 override fun onClick(view: View, position: Int) {
                     val item = list[position]
-                    val intent = Intent(context, RegistrationItemDetailsActivity::class.java).apply {
-                        putExtra("id", item.registration_item_id)
-                    }
+                    val intent =
+                        Intent(context, RegistrationItemDetailsActivity::class.java).apply {
+                            putExtra("id", item.registration_item_id)
+                        }
                     activity?.startActivityForResult(intent, 600)
                 }
             })
@@ -141,7 +144,8 @@ class ProfileFragment : Fragment() {
 
     fun loadMyDidErrand() {
         val Ref = db.collection("심부름")
-        Ref.whereEqualTo("supporter", (activity as MainActivity).user.email).whereEqualTo("state", 2)
+        Ref.whereEqualTo("supporter", (activity as MainActivity).user.email)
+            .whereEqualTo("state", 2)
             .get()
             .addOnSuccessListener { documents ->
                 list.clear()
@@ -157,9 +161,11 @@ class ProfileFragment : Fragment() {
                 Log.w(TAG, "Error getting documents: ", exception)
             }
     }
+
     fun loadMyIngErrand() {
         val Ref = db.collection("심부름")
-        Ref.whereEqualTo("supporter", (activity as MainActivity).user.email).whereEqualTo("state", 1)
+        Ref.whereEqualTo("supporter", (activity as MainActivity).user.email)
+            .whereEqualTo("state", 1)
             .get()
             .addOnSuccessListener { documents ->
                 list.clear()
@@ -196,4 +202,38 @@ class ProfileFragment : Fragment() {
         tvComCount.text = user.comCount.toString()
         tvGiveupCount.text = user.giveUpCount.toString()
     }
+
+    fun refreshUserInfo() {
+        val googleUser = FirebaseAuth.getInstance().currentUser
+        (activity as MainActivity).googleUser = googleUser
+        googleUser?.let {
+            val docRef = db.collection("사용자")
+                .document("${googleUser?.email}")
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        val data = document.data
+                        if (data != null) {
+                            val user = User(
+                                name = data?.get("name") as String,
+                                email = data?.get("email") as String,
+                                phoneNumber = data?.get("phoneNumber") as String,
+                                supporter = data?.get("supporter") as Boolean,
+                                pushtoken = FirebaseInstanceId.getInstance().token.toString(),
+                                comCount = data?.get("comCount").toString().toInt(),
+                                giveUpCount = data?.get("giveUpCount").toString().toInt()
+                            )
+                            (activity as MainActivity).user = user
+                        }
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
+                    setUI()
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "get failed with ", exception)
+                }
+        }
+    }
+
 }
