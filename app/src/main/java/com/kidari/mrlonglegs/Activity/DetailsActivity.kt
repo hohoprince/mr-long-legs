@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.firepush.Fire
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.iid.FirebaseInstanceId
 import com.kidari.mrlonglegs.R
@@ -24,31 +25,36 @@ class DetailsActivity : AppCompatActivity() {
     lateinit var sbremail: String
     lateinit var sbrtoken: String
     lateinit var sbrtitle: String
+    var googleUser: FirebaseUser? = null
     var sbrstate: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
+        googleUser = FirebaseAuth.getInstance().currentUser
         val id = intent.getStringExtra("id")
         loadData(id!!)
         Log.d("태그", "상태전")
-
-
-
+        
         btn_proposal.setOnClickListener {
-            Fire.create()
-                .setTitle("키다리아저씨")
-                .setBody("$sbrtitle" + "  심부름이 신청되었습니다")
-                .setCallback { pushCallback, exception ->
-                    //get response here
-                }
-                .toIds("$sbrtoken").push()
-            Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
-            updateErrandState(id)
-            updateSupporterOfErrand(id)
-            setResult(Activity.RESULT_OK)
-            finish()
+            if(sbremail == googleUser?.email){
+                Toast.makeText(this, "내 심부름은 신청할 수 없습니다 !!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                Fire.create()
+                    .setTitle("키다리아저씨")
+                    .setBody("$sbrtitle" + "  심부름이 신청되었습니다")
+                    .setCallback { pushCallback, exception ->
+                        //get response here
+                    }
+                    .toIds("$sbrtoken").push()
+                Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
+                updateErrandState(id)
+                updateSupporterOfErrand(id)
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
         }
     }
 
