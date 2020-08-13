@@ -46,6 +46,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
         loadData(id!!)
         Log.d("태그", "상태전")
+        Log.d("d123","$sbrstate")
 
         btn_edit.setOnClickListener {
             if (supporterInfo == "") {
@@ -93,6 +94,10 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
                     sbrstate = document["state"].toString().toInt()
+                    if(sbrstate >= 1){
+                        btn_delete.isEnabled = false
+                        btn_edit.isEnabled = false
+                    }
                     val uri = Uri.parse(document["photoUrl"].toString())
                     Glide.with(this).load(uri).into(ivDetailsProfile)
                     progressBar.visibility = View.GONE
