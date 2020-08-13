@@ -35,6 +35,7 @@ class ListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        recyclerview_list.adapter = recyclerAdapter
         recyclerview_list.layoutManager =
             LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
 
@@ -45,7 +46,7 @@ class ListFragment : Fragment() {
                 val intent = Intent(context, DetailsActivity::class.java).apply {
                     putExtra("id", item.list_item_id)
                 }
-                startActivity(intent)
+                activity?.startActivityForResult(intent, 700)
             }
         })
     }
@@ -58,7 +59,7 @@ class ListFragment : Fragment() {
             recyclerview_list.visibility = View.INVISIBLE
             loadData()
         }
-        recyclerview_list.adapter = recyclerAdapter
+
 
     }
 

@@ -47,6 +47,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
         loadData(id!!)
         Log.d("태그", "상태전")
+        Log.d("d123","$sbrstate")
 
         btn_edit.setOnClickListener {
             if (supporterInfo == "") {
@@ -69,7 +70,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     }
 
             } else {
-                Toast.makeText(this, "이미 수행중인 심부릅은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "이미 수행중인 심부름은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -101,6 +102,10 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
                     sbrstate = document["state"].toString().toInt()
+                    if(sbrstate >= 1){
+                        btn_delete.isEnabled = false
+                        btn_edit.isEnabled = false
+                    }
                     val uri = Uri.parse(document["photoUrl"].toString())
                     Glide.with(this).load(uri).into(ivDetailsProfile)
                     progressBar.visibility = View.GONE
