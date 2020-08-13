@@ -1,5 +1,6 @@
 package com.kidari.mrlonglegs.Activity
 
+import android.app.Activity
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -46,7 +47,7 @@ class DetailsActivity : AppCompatActivity() {
             Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
             updateErrandState(id)
             updateSupporterOfErrand(id)
-
+            setResult(Activity.RESULT_OK)
             finish()
         }
     }

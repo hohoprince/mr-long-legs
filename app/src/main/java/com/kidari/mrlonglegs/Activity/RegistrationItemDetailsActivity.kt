@@ -68,7 +68,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     }
 
             } else {
-                Toast.makeText(this, "이미 수행중인 심부릅은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "이미 수행중인 심부름은 삭제가 불가능합니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }
