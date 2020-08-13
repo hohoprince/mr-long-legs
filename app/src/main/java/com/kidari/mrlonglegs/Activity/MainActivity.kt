@@ -132,13 +132,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            601 -> {
-                Log.d("dddd", "601")
-                if (resultCode == Activity.RESULT_OK) {
-                    profileFragment.loadMyIngErrand()
-                }
-            }
-
             RC_SIGN_IN -> {
                 val response = IdpResponse.fromResultIntent(data)
 
