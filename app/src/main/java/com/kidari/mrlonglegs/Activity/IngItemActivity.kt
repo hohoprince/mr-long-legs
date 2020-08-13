@@ -153,6 +153,7 @@ class IngItemActivity : AppCompatActivity() {
 
             // Note: this could be done without a transaction
             //       by updating the population using FieldValue.increment()
+            transaction.update(sfDocRef, "supporterName", "없음")
             transaction.update(sfDocRef, "supporter", "")
 
             // Success

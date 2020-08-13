@@ -119,7 +119,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:textSize="12sp" />
-
                 </LinearLayout>
             </LinearLayout>
 
@@ -137,20 +136,6 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:text="서포터 정보"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/supporter_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:textSize="14sp" />
-
-            <TextView
                 android:id="@+id/supporter_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,6 +144,16 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/divLine2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/fui_buttonShadow"
+        app:layout_constraintBottom_toTopOf="@+id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/bottomLayout"
