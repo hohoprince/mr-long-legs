@@ -36,7 +36,7 @@ class DetailsActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
         loadData(id!!)
         Log.d("태그", "상태전")
-        
+
         btn_proposal.setOnClickListener {
             if(sbremail == googleUser?.email){
                 Toast.makeText(this, "내 심부름은 신청할 수 없습니다 !!", Toast.LENGTH_SHORT).show()
@@ -52,7 +52,6 @@ class DetailsActivity : AppCompatActivity() {
                 Toast.makeText(this, "신청되었습니다", Toast.LENGTH_SHORT).show()
                 updateErrandState(id)
                 updateSupporterOfErrand(id)
-                setResult(Activity.RESULT_OK)
                 finish()
             }
         }
@@ -73,7 +72,7 @@ class DetailsActivity : AppCompatActivity() {
 
             // Success
             null
-        }.addOnSuccessListener { Log.d(TAG, "Transaction success!") }
+        }.addOnSuccessListener { setResult(Activity.RESULT_FIRST_USER) }
             .addOnFailureListener { e -> Log.w(TAG, "Transaction failure.", e) }
     }
 

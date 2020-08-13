@@ -51,8 +51,8 @@ class IngItemActivity : AppCompatActivity() {
             Toast.makeText(this, "완료되었습니다", Toast.LENGTH_SHORT).show()
             updateErrandState(id)
             updateSupporterOfErrand(id)
+            setResult(Activity.RESULT_FIRST_USER)
             countComplete() // 완료 횟수 증가
-            setResult(Activity.RESULT_OK)
             finish()
         }
 
@@ -67,13 +67,12 @@ class IngItemActivity : AppCompatActivity() {
             Toast.makeText(this, "포기되었습니다", Toast.LENGTH_SHORT).show()
             updategiveupErrandState(id)
             updategiveupSupporterOfErrand(id)
+            setResult(Activity.RESULT_FIRST_USER)
             countGiveup() // 포기 횟수 증가
-            setResult(Activity.RESULT_OK)
             finish()
         }
     }
 
-    // 심부름에 서포터 정보 입력
     fun updateSupporterOfErrand(id: String) {
         val user = FirebaseAuth.getInstance().currentUser
         val sfDocRef = db.collection("심부름").document("$id")
