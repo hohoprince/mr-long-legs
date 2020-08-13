@@ -26,6 +26,7 @@ import kotlinx.android.synthetic.main.activity_details.tvLocation
 import kotlinx.android.synthetic.main.activity_details.tvName
 import kotlinx.android.synthetic.main.activity_details.tvPayment
 import kotlinx.android.synthetic.main.activity_details.tvTitle
+import kotlinx.android.synthetic.main.activity_did_item_details.*
 import kotlinx.android.synthetic.main.activity_registration_details.*
 
 class RegistrationItemDetailsActivity : AppCompatActivity() {
@@ -83,7 +84,14 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     tvCategory.text = document["category"].toString()
                     tvContent.text = document["content"].toString()
                     tvLocation.text = document["location"].toString()
-                    tvEmerg.text = document["urgencyDegree"].toString()
+                    val emergState = document["urgencyDegree"].toString()
+                    tvEmerg.text = emergState
+                    when (emergState) {
+                        "급해요" -> ivState2.setImageResource(R.drawable.ic_emerg_state_red_24)
+                        "보통이에요" -> ivState2.setImageResource(R.drawable.ic_emerg_state_yellow_24)
+                        "널널해요" -> ivState2.setImageResource(R.drawable.ic_emerg_state_green_24)
+                    }
+                    ivState1.visibility = View.VISIBLE
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
                     supporter_email.text = document["supporter"].toString()
@@ -103,8 +111,5 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
             }
-
-
     }
-
 }

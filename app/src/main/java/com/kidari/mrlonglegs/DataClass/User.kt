@@ -5,5 +5,7 @@ data class User(
     var email: String = "",
     var phoneNumber: String = "",
     var supporter: Boolean = false,
-    var pushtoken: String = ""
+    var pushtoken: String = "",
+    var comCount: Int = 0,
+    var giveUpCount: Int = 0
 )
