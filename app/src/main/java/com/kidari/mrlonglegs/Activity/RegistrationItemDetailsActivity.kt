@@ -92,7 +92,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                         "보통이에요" -> ivState2.setImageResource(R.drawable.ic_emerg_state_yellow_24)
                         "널널해요" -> ivState2.setImageResource(R.drawable.ic_emerg_state_green_24)
                     }
-                    ivState1.visibility = View.VISIBLE
+                    ivState2.visibility = View.VISIBLE
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
                     supporter_email.text = document["supporter"].toString()

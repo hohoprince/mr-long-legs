@@ -113,7 +113,7 @@ class ProfileFragment : Fragment() {
                     val intent = Intent(context, IngItemActivity::class.java).apply {
                         putExtra("id", item.registration_item_id)
                     }
-                    activity?.startActivityForResult(intent, 601)
+                    activity?.startActivityForResult(intent, 900)
                 }
             })
             loadMyIngErrand()
