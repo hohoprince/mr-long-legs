@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity() {
             600 -> {
                 if (resultCode == Activity.RESULT_OK) {
                     profileFragment.loadMyRegErrand()
+                    listFragment.loadData()
                 }
             }
 
