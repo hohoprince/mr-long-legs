@@ -36,6 +36,7 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
     lateinit var sbrtoken: String
     lateinit var sbrtitle: String
     lateinit var supporterInfo: String
+    lateinit var supporterEmail: String
     var sbrstate: Int = 0
     val list = ArrayList<RegistrationItemMember>()
     val recyclerAdapter = RegistrationItemAdapter(list)
@@ -95,9 +96,14 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     ivState2.visibility = View.VISIBLE
                     tvTitle.text = document["title"].toString()
                     tvPayment.text = document["payment"].toString()
-                    supporter_email.text = document["supporter"].toString()
+                    supporterEmail = document["supporter"].toString()
+                    supporter_email.text = supporterEmail
                     supporter_name.text = document["supporterName"].toString()
                     supporterInfo = document["supporter"].toString()
+                    val state = document["state"].toString().toInt()
+                    if (state != 0) { // 수행 전이 아니면 서포터 정보 보여줌
+                        loadSupporterData(supporterEmail)
+                    }
                     sbremail = document["email"].toString()
                     sbrtitle = document["title"].toString()
                     sbrtoken = document["token"].toString()
@@ -109,6 +115,24 @@ class RegistrationItemDetailsActivity : AppCompatActivity() {
                     val uri = Uri.parse(document["photoUrl"].toString())
                     Glide.with(this).load(uri).into(ivDetailsProfile)
                     progressBar.visibility = View.GONE
+                } else {
+                    Log.d(TAG, "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d(TAG, "get failed with ", exception)
+            }
+    }
+
+    fun loadSupporterData(email: String) {
+        val docRef = db.collection("사용자")
+            .document("$email")
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    tvComplete.text = document["comCount"].toString()
+                    tvGiveup.text = document["giveUpCount"].toString()
+                    supporterInfoLayout.visibility = View.VISIBLE
                 } else {
                     Log.d(TAG, "No such document")
                 }

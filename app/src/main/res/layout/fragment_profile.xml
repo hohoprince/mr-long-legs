@@ -112,6 +112,8 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button_stroke"
         android:text="내 심부름"
+        app:layout_constraintEnd_toStartOf="@+id/did_item_button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoLayout" />
 
@@ -125,6 +127,7 @@
         android:background="@drawable/round_button_stroke"
         android:text="내가 하고있는 심부름"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/did_item_button"
         app:layout_constraintTop_toBottomOf="@+id/infoLayout" />
 
@@ -136,6 +139,8 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/round_button_stroke"
         android:text="내가 한 심부름"
+        app:layout_constraintEnd_toStartOf="@+id/ing_item_button"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/registration_item_button"
         app:layout_constraintTop_toBottomOf="@+id/infoLayout" />
 

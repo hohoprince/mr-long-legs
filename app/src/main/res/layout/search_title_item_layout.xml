@@ -10,9 +10,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
-        app:cardUseCompatPadding="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginEnd ="17dp">
+        app:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -49,13 +47,13 @@
                 android:id="@+id/search_title_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/search_title_title"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="지역"
-                android:layout_below="@id/search_title_title"
                 android:layout_toRightOf="@+id/search_title_registrationDate"
+                android:text="지역"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textStyle="bold" />
             <!--            심부름 위치-->
@@ -64,13 +62,13 @@
                 android:id="@+id/search_title_payment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/search_title_title"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:text="비용"
-                android:layout_below="@id/search_title_title"
                 android:layout_toRightOf="@id/search_title_location"
+                android:text="비용"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textStyle="bold" />
             <!--            심부름 비용-->
